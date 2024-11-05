@@ -17,12 +17,10 @@ import (
 
 )
 
-// New GER event Etrog
-var updateL1InfoTreeSignatureHash = crypto.Keccak256Hash([]byte("UpdateL1InfoTree(bytes32,bytes32)"))
-var updateGlobalExitRootSignatureHash                   = crypto.Keccak256Hash([]byte("UpdateGlobalExitRoot(bytes32,bytes32)"))
-
 const (
   DefaultBridgeAddress                       = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
+  DefaultGlobalExitRootManager               = "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
+  DefaultRollupManager                       = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e"
 	DefaultSequencerAddress                    = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 	DefaultSequencerPrivateKey                 = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 	DefaultForcedBatchesAddress                = "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
@@ -37,6 +35,12 @@ const (
 	DefaultL1ChainID                    uint64 = 1337
 
 	miningTimeout      = 180
+)
+
+var(
+  updateL1InfoTreeSignatureHash = crypto.Keccak256Hash([]byte("UpdateL1InfoTree(bytes32,bytes32)"))
+  updateGlobalExitRootSignatureHash = crypto.Keccak256Hash([]byte("UpdateGlobalExitRoot(bytes32,bytes32)"))
+  depositEventSignatureHash = crypto.Keccak256Hash([]byte("BridgeEvent(uint8,uint32,address,uint32,address,uint256,bytes,uint32)")) // Used in oldBridge as well
 )
 
 
@@ -83,12 +87,24 @@ func main() {
     ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
     Addresses: []common.Address{
       common.HexToAddress(DefaultBridgeAddress),
+      common.HexToAddress(DefaultGlobalExitRootManager),
+      common.HexToAddress(DefaultRollupManager),
     },
   }
 
   logs, err := l1client.FilterLogs(ctx, query)
   chkErr(err)
-  log.Debugf("%v", logs)
+
+  for _, vLog := range logs {
+    switch vLog.Topics[0] {
+    	case updateL1InfoTreeSignatureHash:
+    		log.Infof("UpdateL1InfoTree event detected: %v", vLog.Topics[0])
+    	case depositEventSignatureHash:
+		    log.Infof("Deposit event detected: %v", vLog.Topics[0])
+		  default:
+		    log.Infof("Event not registered: %+v", vLog.Topics[0])
+    }
+  }
 }
 
 func chkErr(err error) {
