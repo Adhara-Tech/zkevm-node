@@ -43,6 +43,11 @@ var(
   depositEventSignatureHash = crypto.Keccak256Hash([]byte("BridgeEvent(uint8,uint32,address,uint32,address,uint256,bytes,uint32)")) // Used in oldBridge as well
 )
 
+var scAddresses = []common.Address{
+  common.HexToAddress(DefaultBridgeAddress),
+  common.HexToAddress(DefaultGlobalExitRootManager),
+  common.HexToAddress(DefaultRollupManager),
+}
 
 func main() {
 
@@ -84,11 +89,7 @@ func main() {
 	query := ethereum.FilterQuery{
     FromBlock: new(big.Int).SetUint64(initBlockNumber),
     ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
-    Addresses: []common.Address{
-      common.HexToAddress(DefaultBridgeAddress),
-      common.HexToAddress(DefaultGlobalExitRootManager),
-      common.HexToAddress(DefaultRollupManager),
-    },
+    Addresses: scAddresses,
   }
 
   logs, err := l1client.FilterLogs(ctx, query)
