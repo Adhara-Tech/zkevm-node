@@ -62,7 +62,6 @@ func main() {
 
   bridge, err := etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(common.HexToAddress(DefaultBridgeAddress), l1client)
 	chkErr(err)
-  log.Debugf("%v", bridge)
 
   // Read currentBlock
 	initBlock, err := l1client.BlockByNumber(ctx, nil)
