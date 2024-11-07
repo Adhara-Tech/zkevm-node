@@ -10,13 +10,13 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	erc20 "github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/pol"
+	"github.com/0xPolygonHermez/zkevm-node/test/contracts/bin/ERC20"
 
 	//"github.com/ethereum/go-ethereum"
 
   //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonrollupmanager"
   //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevm"
-	//"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
+	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
 	//"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 
@@ -57,22 +57,33 @@ func main() {
 
   balance, err := client.BalanceAt(ctx, common.HexToAddress(l1AccHexAddress), nil)
   chkErr(err)
-  log.Debugf("ETH Balance for %v: %v", l1AccHexAddress, balance)
+  log.Debugf("ETH Balance for l1AccHexAddress %v: %v", l1AccHexAddress, balance)
 
-  erc20Token, err := erc20.NewPol(common.HexToAddress(PolTokenAddress), client)
+//   erc20Token, err := erc20.NewPol(common.HexToAddress(PolTokenAddress), client)
+//   chkErr(err)
+  tokenAddr, tx, erc20sc, err := ERC20.DeployERC20(auth, client, "A COIN", "ACO")
   chkErr(err)
-  balance, err = erc20Token.BalanceOf(&bind.CallOpts{Pending: false}, common.HexToAddress(l1AccHexAddress))
+	err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
   chkErr(err)
-  log.Debugf("ETH Balance for %v: %v", l1AccHexAddress, balance)
-  balance, err = erc20Token.BalanceOf(&bind.CallOpts{Pending: false}, common.HexToAddress(deployerAddress))
+	log.Info("Token Addr: ", tokenAddr.Hex())
+	amountTokens := new(big.Int).SetUint64(1000000000000000000)
+	tx, err = erc20sc.Approve(auth, common.HexToAddress(l1BridgeAddr), amountTokens)
   chkErr(err)
-  log.Debugf("ETH Balance for %v: %v", deployerAddress, balance)
-  balance, err = erc20Token.BalanceOf(&bind.CallOpts{Pending: false}, common.HexToAddress(l1BridgeAddr))
+  err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
   chkErr(err)
-  log.Debugf("ETH Balance for %v: %v", l1BridgeAddr, balance)
+	tx, err = erc20sc.Mint(auth, amountTokens)
+	chkErr(err)
+  err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
+  chkErr(err)
 
-  amount := big.NewInt(999999999999999999)
-  tx, err := erc20Token.Approve(auth, common.HexToAddress(l1BridgeAddr), amount)
+  balance, err = erc20sc.BalanceOf(&bind.CallOpts{Pending: false}, auth.From)
+  chkErr(err)
+  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
+
+  // Make a bridge tx
+  bridge, err := etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(common.HexToAddress(l1BridgeAddr), client)
+  amount := big.NewInt(90000000000000000)
+  tx, err = bridge.BridgeAsset(auth, 1, common.HexToAddress(l1AccHexAddress), amount, tokenAddr, true, []byte{})
   chkErr(err)
 
   err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
