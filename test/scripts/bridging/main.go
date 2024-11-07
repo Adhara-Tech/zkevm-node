@@ -11,11 +11,14 @@ import (
   "github.com/0xPolygonHermez/zkevm-node/test/operations"
   "github.com/ethereum/go-ethereum/accounts/abi/bind"
   "github.com/0xPolygonHermez/zkevm-node/test/contracts/bin/ERC20"
+  "github.com/ethereum/go-ethereum"
+  "github.com/ethereum/go-ethereum/crypto"
 
   "github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
 )
 
 const (
+  DefaultGlobalExitRootManager               = "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
   DefaultBridgeAddress                       = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
 	DefaultSequencerAddress                    = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
 	DefaultSequencerPrivateKey                 = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
@@ -48,6 +51,18 @@ const (
 	L1AccountPrivateKey = "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a"
   L2AccountAddress = "0xc949254d682d8c9ad5682521675b8f43b102aec4"
   L2AccountPrivateKey = "0xdfd01798f92667dbf91df722434e8fbe96af0211d4d1b82bbbbc8f1def7a814f"
+)
+
+var scAddresses = []common.Address{
+  common.HexToAddress(DefaultBridgeAddress),
+  common.HexToAddress(DefaultGlobalExitRootManager),
+  common.HexToAddress(DefaultL1RollupManagerSmartContract),
+  common.HexToAddress(DefaultL1ZkEVMSmartContract),
+}
+
+var(
+  updateL1InfoTreeSignatureHash = crypto.Keccak256Hash([]byte("UpdateL1InfoTree(bytes32,bytes32)"))
+  depositEventSignatureHash = crypto.Keccak256Hash([]byte("BridgeEvent(uint8,uint32,address,uint32,address,uint256,bytes,uint32)"))
 )
 
 type Client struct {
@@ -138,4 +153,54 @@ func main() {
   if err != nil {
     log.Fatal(err)
   }
+
+  // Read currentBlock
+  	initBlock, err := l1Client.BlockByNumber(ctx, nil)
+  	if err != nil {
+        log.Fatal(err)
+      }
+  	initBlockNumber := initBlock.NumberU64()
+
+    // Make a bridge tx
+    amount := big.NewInt(1000000000000000)
+  	l1Auth.Value = amount
+  	tx, err := l1Client.Bridge.BridgeAsset(l1Auth, 1, l1Auth.From, amount, common.Address{}, true, []byte{})
+    if err != nil {
+        log.Fatal(err)
+      }
+    l1Auth.Value = big.NewInt(0)
+
+    err = operations.WaitTxToBeMined(ctx, l1Client, tx, 60*time.Second)
+    if err != nil {
+        log.Fatal(err)
+      }
+
+    // Now read the event
+  	finalBlock, err := l1Client.BlockByNumber(ctx, nil)
+  	if err != nil {
+        log.Fatal(err)
+      }
+  	finalBlockNumber := finalBlock.NumberU64()
+
+  	query := ethereum.FilterQuery{
+      FromBlock: new(big.Int).SetUint64(initBlockNumber),
+      ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
+      Addresses: scAddresses,
+    }
+
+    logs, err := l1Client.FilterLogs(ctx, query)
+    if err != nil {
+        log.Fatal(err)
+      }
+
+    for _, vLog := range logs {
+      switch vLog.Topics[0] {
+      	case updateL1InfoTreeSignatureHash:
+      		log.Infof("UpdateL1InfoTree event detected: %v", vLog.Topics[0])
+      	case depositEventSignatureHash:
+  		    log.Infof("Deposit event detected: %v", vLog.Topics[0])
+  		  default:
+  		    log.Infof("Event not registered: %+v", vLog.Topics[0])
+      }
+    }
 }
