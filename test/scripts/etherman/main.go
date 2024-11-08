@@ -12,12 +12,13 @@ import (
 
 	"github.com/0xPolygonHermez/zkevm-node/test/contracts/bin/ERC20"
 
-	//"github.com/ethereum/go-ethereum"
+	"github.com/ethereum/go-ethereum"
 
   //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonrollupmanager"
   //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevm"
 	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
-	//"github.com/ethereum/go-ethereum/crypto"
+	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmglobalexitroot"
+	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 
 )
@@ -42,6 +43,41 @@ const (
 
 )
 
+var scAddresses = []common.Address{
+  common.HexToAddress(l1BridgeAddr),
+}
+
+var(
+  updateL1InfoTreeSignatureHash = crypto.Keccak256Hash([]byte("UpdateL1InfoTree(bytes32,bytes32)"))
+  depositEventSignatureHash = crypto.Keccak256Hash([]byte("BridgeEvent(uint8,uint32,address,uint32,address,uint256,bytes,uint32)"))
+)
+
+// Block struct
+type Block struct {
+	Deposits        []Deposit
+}
+
+// Deposit struct
+type Deposit struct {
+	Id                 uint64
+	LeafType           uint8
+	OriginalNetwork    uint
+	OriginalAddress    common.Address
+	Amount             *big.Int
+	DestinationNetwork uint
+	DestinationAddress common.Address
+	DepositCount       uint
+	BlockID            uint64
+	BlockNumber        uint64
+	NetworkID          uint
+	TxHash             common.Hash
+	Metadata           []byte
+	// it is only used for the bridge service
+	ReadyForClaim bool
+}
+
+var block Block
+
 func main() {
 
 	ctx := context.Background()
@@ -59,8 +95,6 @@ func main() {
   chkErr(err)
   log.Debugf("ETH Balance for l1AccHexAddress %v: %v", l1AccHexAddress, balance)
 
-//   erc20Token, err := erc20.NewPol(common.HexToAddress(PolTokenAddress), client)
-//   chkErr(err)
   tokenAddr, tx, erc20sc, err := ERC20.DeployERC20(auth, client, "A COIN", "ACO")
   chkErr(err)
 	err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
@@ -80,6 +114,11 @@ func main() {
   chkErr(err)
   log.Debugf("ETH Balance for %v: %v", auth.From, balance)
 
+  // Read currentBlock
+  initBlock, err := client.BlockByNumber(ctx, nil)
+  chkErr(err)
+  initBlockNumber := initBlock.NumberU64()
+
   // Make a bridge tx
   bridge, err := etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(common.HexToAddress(l1BridgeAddr), client)
   amount := big.NewInt(90000000000000000)
@@ -88,6 +127,59 @@ func main() {
 
   err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
   chkErr(err)
+
+  // Now read the event
+  finalBlock, err := client.BlockByNumber(ctx, nil)
+  chkErr(err)
+  finalBlockNumber := finalBlock.NumberU64()
+
+  query := ethereum.FilterQuery{
+    FromBlock: new(big.Int).SetUint64(initBlockNumber),
+    ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
+    Addresses: scAddresses,
+  }
+
+  logs, err := client.FilterLogs(ctx, query)
+  chkErr(err)
+
+  for _, vLog := range logs {
+    switch vLog.Topics[0] {
+     case updateL1InfoTreeSignatureHash:
+	     log.Infof("UpdateL1InfoTree event detected: %v", vLog.Topics[0])
+     case depositEventSignatureHash:
+	     log.Infof("Deposit event detected: %v", vLog.Topics[0])
+	     d, err := bridge.ParseBridgeEvent(vLog)
+	     chkErr(err)
+	     var deposit Deposit
+       deposit.Amount = d.Amount
+       deposit.BlockNumber = vLog.BlockNumber
+       deposit.OriginalNetwork = uint(d.OriginNetwork)
+       deposit.DestinationAddress = d.DestinationAddress
+       deposit.DestinationNetwork = uint(d.DestinationNetwork)
+       deposit.OriginalAddress = d.OriginAddress
+       deposit.DepositCount = uint(d.DepositCount)
+       deposit.TxHash = vLog.TxHash
+       deposit.Metadata = d.Metadata
+       deposit.LeafType = d.LeafType
+       block.Deposits = append(block.Deposits, deposit)
+  	default:
+	     log.Infof("Event not registered: %+v", vLog.Topics[0])
+    }
+	}
+
+  GlobalExitRootManAddr, err := bridge.GlobalExitRootManager(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("GlobalExitRootManAddr: %v", GlobalExitRootManAddr)
+
+  globalManager, err := etrogpolygonzkevmglobalexitroot.NewEtrogpolygonzkevmglobalexitroot(GlobalExitRootManAddr, client)
+  chkErr(err)
+  log.Debugf("globalManager: %v", globalManager)
+  gMainnet, err := globalManager.LastMainnetExitRoot(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("gMainnet: %v", gMainnet)
+  gRollup, err := globalManager.LastRollupExitRoot(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("gRollup: %v", gRollup)
 
 }
 
