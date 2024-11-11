@@ -1,63 +1,50 @@
 package main
 
 import (
-  "context"
-  "time"
-  "math/big"
+	"context"
+	"time"
+	"math/big"
 
-  "github.com/0xPolygonHermez/zkevm-node/log"
-  "github.com/ethereum/go-ethereum/ethclient"
-  "github.com/ethereum/go-ethereum/common"
-  "github.com/0xPolygonHermez/zkevm-node/test/operations"
-  "github.com/ethereum/go-ethereum/accounts/abi/bind"
-  "github.com/0xPolygonHermez/zkevm-node/test/contracts/bin/ERC20"
-  "github.com/ethereum/go-ethereum"
-  "github.com/ethereum/go-ethereum/crypto"
+	"github.com/0xPolygonHermez/zkevm-node/log"
+	"github.com/0xPolygonHermez/zkevm-node/test/operations"
+	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/ethclient"
 
-  "github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
+	"github.com/0xPolygonHermez/zkevm-node/test/contracts/bin/ERC20"
+
+	"github.com/ethereum/go-ethereum"
+
+  //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonrollupmanager"
+  //"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevm"
+	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
+	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmglobalexitroot"
+	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+
 )
 
 const (
-  DefaultGlobalExitRootManager               = "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
-  DefaultBridgeAddress                       = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
-	DefaultSequencerAddress                    = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
-	DefaultSequencerPrivateKey                 = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
-	DefaultForcedBatchesAddress                = "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
-	DefaultForcedBatchesPrivateKey             = "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a"
-	DefaultSequencerBalance                    = 400000
-	DefaultMaxCumulativeGasUsed                = 800000
-	DefaultL1ZkEVMSmartContract                = "0x8dAF17A20c9DBA35f005b6324F493785D239719d"
-	DefaultL1RollupManagerSmartContract        = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e"
-	DefaultL1PolSmartContract                  = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-	DefaultL1NetworkURL                        = "http://localhost:8545"
-	DefaultL1NetworkWebSocketURL               = "ws://localhost:8546"
-	DefaultL1ChainID                    uint64 = 1337
+  l1NetworkURL                        = "http://localhost:8545"
+  l1ChainID                    uint64 = 1337
 
-	DefaultL2NetworkURL                        = "http://localhost:8123"
-	PermissionlessL2NetworkURL                 = "http://localhost:8125"
-	DefaultL2NetworkWebSocketURL               = "ws://localhost:8133"
-	PermissionlessL2NetworkWebSocketURL        = "ws://localhost:8135"
-	DefaultL2ChainID                    uint64 = 1001
+	// PolTokenAddress token address
+	PolTokenAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" //nolint:gosec
+	l1BridgeAddr    = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
+	l2BridgeAddr    = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
 
-	DefaultTimeoutTxToBeMined = 1 * time.Minute
+	l1AccHexAddress = "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+  l1AccHexPrivateKey = "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a" //0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
 
-	DefaultWaitPeriodSendSequence                          = "15s"
-	DefaultLastBatchVirtualizationTimeMaxWaitPeriod        = "10s"
-	DefaultMaxTxSizeForL1                           uint64 = 131072
+  l2AccHexAddress = "0xc949254d682d8c9ad5682521675b8f43b102aec4"
+  l2AccHexPrivateKey = "0xdfd01798f92667dbf91df722434e8fbe96af0211d4d1b82bbbbc8f1def7a814f" //0xc949254d682d8c9ad5682521675b8f43b102aec4
 
-	DeployerAccountAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
-	DeployerAccountPrivateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
-	L1AccountAddress = "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
-	L1AccountPrivateKey = "0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a"
-  L2AccountAddress = "0xc949254d682d8c9ad5682521675b8f43b102aec4"
-  L2AccountPrivateKey = "0xdfd01798f92667dbf91df722434e8fbe96af0211d4d1b82bbbbc8f1def7a814f"
+  deployerAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  deployerHexPrivateKey = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" //0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+
 )
 
 var scAddresses = []common.Address{
-  common.HexToAddress(DefaultBridgeAddress),
-  common.HexToAddress(DefaultGlobalExitRootManager),
-  common.HexToAddress(DefaultL1RollupManagerSmartContract),
-  common.HexToAddress(DefaultL1ZkEVMSmartContract),
+  common.HexToAddress(l1BridgeAddr),
 }
 
 var(
@@ -65,142 +52,139 @@ var(
   depositEventSignatureHash = crypto.Keccak256Hash([]byte("BridgeEvent(uint8,uint32,address,uint32,address,uint256,bytes,uint32)"))
 )
 
-type Client struct {
-	*ethclient.Client
-	Bridge       *etrogpolygonzkevmbridge.Etrogpolygonzkevmbridge
-	BridgeSCAddr common.Address
-	NodeURL      string
+// Block struct
+type Block struct {
+	Deposits        []Deposit
 }
 
-// NewClient creates client.
-func NewClient(ctx context.Context, nodeURL string, bridgeSCAddr common.Address) (*Client, error) {
-	client, err := ethclient.Dial(nodeURL)
-	if err != nil {
-		return nil, err
-	}
-	var br *etrogpolygonzkevmbridge.Etrogpolygonzkevmbridge
-	if bridgeSCAddr != (common.Address{}) {
-		br, err = etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(bridgeSCAddr, client)
-	}
-	return &Client{
-		Client:       client,
-		Bridge:       br,
-		BridgeSCAddr: bridgeSCAddr,
-		NodeURL:      nodeURL,
-	}, err
+// Deposit struct
+type Deposit struct {
+	Id                 uint64
+	LeafType           uint8
+	OriginalNetwork    uint
+	OriginalAddress    common.Address
+	Amount             *big.Int
+	DestinationNetwork uint
+	DestinationAddress common.Address
+	DepositCount       uint
+	BlockID            uint64
+	BlockNumber        uint64
+	NetworkID          uint
+	TxHash             common.Hash
+	Metadata           []byte
+	// it is only used for the bridge service
+	ReadyForClaim bool
 }
 
-func BalanceAt(ctx context.Context, auth *bind.TransactOpts, c *Client) (*big.Int, error) {
-	balance, err := c.Client.BalanceAt(ctx, auth.From, nil)
-  if err != nil {
-   return nil, err
-  }
-  return balance, nil
-}
-
-func DeployERC20(ctx context.Context, name, symbol string, auth *bind.TransactOpts, c *Client) (common.Address, *ERC20.ERC20, error) {
-	const txMinedTimeoutLimit = 60 * time.Second
-	addr, tx, instance, err := ERC20.DeployERC20(auth, c.Client, name, symbol)
-	if err != nil {
-		return common.Address{}, nil, err
-	}
-	err = operations.WaitTxToBeMined(ctx, c.Client, tx, txMinedTimeoutLimit)
-
-	return addr, instance, err
-}
-
-func MintERC20(ctx context.Context, erc20Addr common.Address, amount *big.Int, auth *bind.TransactOpts, c *Client) error {
-	erc20sc, err := ERC20.NewERC20(erc20Addr, c.Client)
-	if err != nil {
-		return err
-	}
-	tx, err := erc20sc.Mint(auth, amount)
-	if err != nil {
-		return err
-	}
-	const txMinedTimeoutLimit = 60 * time.Second
-	return operations.WaitTxToBeMined(ctx, c.Client, tx, txMinedTimeoutLimit)
-}
+var block Block
 
 func main() {
 
-  ctx := context.Background()
+	ctx := context.Background()
 
-  l1Client, err := NewClient(ctx, DefaultL1NetworkURL, common.HexToAddress(DefaultBridgeAddress))
-	if err != nil {
-		log.Fatal(err)
-	}
-  log.Debug(l1Client)
-	l2Client, err := NewClient(ctx, DefaultL2NetworkURL, common.HexToAddress(DefaultBridgeAddress))
-	if err != nil {
-		log.Fatal(err)
-	}
-  log.Debug(l2Client)
+	log.Infof("connecting to %v: %v", "L1", l1NetworkURL)
+	client, err := ethclient.Dial(l1NetworkURL)
+	chkErr(err)
+	log.Infof("connected")
 
-  l1Auth := operations.MustGetAuth(DefaultSequencerPrivateKey, DefaultL1ChainID)
+	auth := operations.MustGetAuth(l1AccHexPrivateKey, l1ChainID)
+	chkErr(err)
+	log.Debugf("auth.from: %v", auth.From)
 
-  balance, err := BalanceAt(ctx, l1Auth, l1Client)
-  if err != nil {
-  	log.Fatal(err)
-  }
-  log.Debugf("ETH Balance for %v: %v", l1Auth.From, balance)
+  balance, err := client.BalanceAt(ctx, common.HexToAddress(l1AccHexAddress), nil)
+  chkErr(err)
+  log.Debugf("ETH Balance for l1AccHexAddress %v: %v", l1AccHexAddress, balance)
 
-  l1TokenAddr, _, err := DeployERC20(ctx, "CREATED ON L1", "CL1", l1Auth, l1Client)
-  if err != nil {
-  	log.Fatal(err)
-  }
-  err = MintERC20(ctx, l1TokenAddr, big.NewInt(999999999999999999), l1Auth, l1Client)
-  if err != nil {
-    log.Fatal(err)
-  }
+  tokenAddr, tx, erc20sc, err := ERC20.DeployERC20(auth, client, "A COIN", "ACO")
+  chkErr(err)
+	err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
+  chkErr(err)
+	log.Info("Token Addr: ", tokenAddr.Hex())
+	amountTokens := new(big.Int).SetUint64(1000000000000000000)
+	tx, err = erc20sc.Approve(auth, common.HexToAddress(l1BridgeAddr), amountTokens)
+  chkErr(err)
+  err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
+  chkErr(err)
+	tx, err = erc20sc.Mint(auth, amountTokens)
+	chkErr(err)
+  err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
+  chkErr(err)
+
+  balance, err = erc20sc.BalanceOf(&bind.CallOpts{Pending: false}, auth.From)
+  chkErr(err)
+  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
 
   // Read currentBlock
-  	initBlock, err := l1Client.BlockByNumber(ctx, nil)
-  	if err != nil {
-        log.Fatal(err)
-      }
-  	initBlockNumber := initBlock.NumberU64()
+  initBlock, err := client.BlockByNumber(ctx, nil)
+  chkErr(err)
+  initBlockNumber := initBlock.NumberU64()
 
-    // Make a bridge tx
-    amount := big.NewInt(1000000000000000)
-  	l1Auth.Value = amount
-  	tx, err := l1Client.Bridge.BridgeAsset(l1Auth, 1, l1Auth.From, amount, common.Address{}, true, []byte{})
-    if err != nil {
-        log.Fatal(err)
-      }
-    l1Auth.Value = big.NewInt(0)
+  // Make a bridge tx
+  bridge, err := etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(common.HexToAddress(l1BridgeAddr), client)
+  amount := big.NewInt(90000000000000000)
+  tx, err = bridge.BridgeAsset(auth, 1, common.HexToAddress(l1AccHexAddress), amount, tokenAddr, true, []byte{})
+  chkErr(err)
 
-    err = operations.WaitTxToBeMined(ctx, l1Client, tx, 60*time.Second)
-    if err != nil {
-        log.Fatal(err)
-      }
+  err = operations.WaitTxToBeMined(ctx, client, tx, 60*time.Second)
+  chkErr(err)
 
-    // Now read the event
-  	finalBlock, err := l1Client.BlockByNumber(ctx, nil)
-  	if err != nil {
-        log.Fatal(err)
-      }
-  	finalBlockNumber := finalBlock.NumberU64()
+  // Now read the event
+  finalBlock, err := client.BlockByNumber(ctx, nil)
+  chkErr(err)
+  finalBlockNumber := finalBlock.NumberU64()
 
-  	query := ethereum.FilterQuery{
-      FromBlock: new(big.Int).SetUint64(initBlockNumber),
-      ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
-      Addresses: scAddresses,
+  query := ethereum.FilterQuery{
+    FromBlock: new(big.Int).SetUint64(initBlockNumber),
+    ToBlock:   new(big.Int).SetUint64(finalBlockNumber),
+    Addresses: scAddresses,
+  }
+
+  logs, err := client.FilterLogs(ctx, query)
+  chkErr(err)
+
+  for _, vLog := range logs {
+    switch vLog.Topics[0] {
+     case updateL1InfoTreeSignatureHash:
+	     log.Infof("UpdateL1InfoTree event detected: %v", vLog.Topics[0])
+     case depositEventSignatureHash:
+	     log.Infof("Deposit event detected: %v", vLog.Topics[0])
+	     d, err := bridge.ParseBridgeEvent(vLog)
+	     chkErr(err)
+	     var deposit Deposit
+       deposit.Amount = d.Amount
+       deposit.BlockNumber = vLog.BlockNumber
+       deposit.OriginalNetwork = uint(d.OriginNetwork)
+       deposit.DestinationAddress = d.DestinationAddress
+       deposit.DestinationNetwork = uint(d.DestinationNetwork)
+       deposit.OriginalAddress = d.OriginAddress
+       deposit.DepositCount = uint(d.DepositCount)
+       deposit.TxHash = vLog.TxHash
+       deposit.Metadata = d.Metadata
+       deposit.LeafType = d.LeafType
+       block.Deposits = append(block.Deposits, deposit)
+  	default:
+	     log.Infof("Event not registered: %+v", vLog.Topics[0])
     }
+	}
 
-    logs, err := l1Client.FilterLogs(ctx, query)
-    if err != nil {
-        log.Fatal(err)
-      }
+  GlobalExitRootManAddr, err := bridge.GlobalExitRootManager(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("GlobalExitRootManAddr: %v", GlobalExitRootManAddr)
 
-    for _, vLog := range logs {
-      switch vLog.Topics[0] {
-      	case updateL1InfoTreeSignatureHash:
-      		log.Infof("UpdateL1InfoTree event detected: %v", vLog.Topics[0])
-      	case depositEventSignatureHash:
-  		    log.Infof("Deposit event detected: %v", vLog.Topics[0])
-  		  default:
-  		    log.Infof("Event not registered: %+v", vLog.Topics[0])
-      }
-    }
+  globalManager, err := etrogpolygonzkevmglobalexitroot.NewEtrogpolygonzkevmglobalexitroot(GlobalExitRootManAddr, client)
+  chkErr(err)
+  log.Debugf("globalManager: %v", globalManager)
+  gMainnet, err := globalManager.LastMainnetExitRoot(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("gMainnet: %v", gMainnet)
+  gRollup, err := globalManager.LastRollupExitRoot(&bind.CallOpts{Pending: false})
+  chkErr(err)
+  log.Debugf("gRollup: %v", gRollup)
+
+}
+
+func chkErr(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
 }
