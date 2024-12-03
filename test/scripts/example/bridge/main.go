@@ -114,7 +114,7 @@ func main() {
 	log.Fatal(err)
   }
   rootInContractHash := common.BytesToHash(rootInContract[:])
-  log.Infof("rootInContractHash", rootInContractHash)
+  log.Infof("LastGlobalExitRoot: %v", rootInContractHash)
 
   log.Infof("Activating forced batches...")
   tx, err := l1.zkEvm.SetForceBatchAddress(l1.authSequencer, common.Address{})
@@ -134,12 +134,11 @@ func main() {
 
   log.Debugf("L1: currentBlock: number:%s Time():%s ", currentBlock.Number().String(), currentBlock.Time())
 
-  var sequences []etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData
-  sequences = append(sequences, etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData{
+  sequences := []etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData{{
 	Transactions: encodedTxs,
-  }, etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData{
+  }, {
 	Transactions: encodedTxs,
-  })
+  }}
   tx, err = l1.zkEvm.SequenceBatches(l1.authSequencer, sequences, uint64(lastL2BlockTStamp), uint64(1), l1.authSequencer.From)
   if err != nil {
 	log.Fatal(err)
