@@ -2,6 +2,7 @@ package main
 
 import (
   "context"
+  "github.com/0xPolygonHermez/zkevm-node/config"
 
   "math/big"
   "time"
@@ -20,6 +21,13 @@ import (
   "github.com/ethereum/go-ethereum/accounts/abi/bind"
   "github.com/ethereum/go-ethereum/common"
   "github.com/ethereum/go-ethereum/ethclient"
+)
+
+const (
+  // dockersArePreLaunched is a flag that indicates if dockers are pre-launched, used for local development
+  // avoiding launch time and reset database time at end (so you can check the database after the test)
+  dockersArePreLaunched = false
+  gerFinalityBlocks     = uint64(9223372036854775807) // The biggeset uint64
 )
 
 const (
@@ -126,36 +134,6 @@ func main() {
 
   log.Debugf("L1: currentBlock: number:%s Time():%s ", currentBlock.Number().String(), currentBlock.Time())
 
-  //// Send forceBatch
-  //tx, err = l1.zkEvm.ForceBatch(l1.authForcedBatch, encodedTxs, tip)
-  //if err != nil {
-  //	log.Fatal(err)
-  //}
-  //
-  //log.Info("TxHash: ", tx.Hash())
-  //time.Sleep(1 * time.Second)
-  //
-  //err = operations.WaitTxToBeMined(ctx, l1.ethClient, tx, operations.DefaultTimeoutTxToBeMined)
-  //if err != nil {
-  //	log.Fatal(err)
-  //}
-  //
-  //fb, vLog, err := findForcedBatchInL1Logs(ctx, currentBlock.Number(), l1)
-  //if err != nil {
-  //	log.Errorf("failed to parse force batch log event, err: ", err)
-  //}
-  //ger := fb.LastGlobalExitRoot
-  //
-  //log.Debugf("log decoded: %+v", fb)
-  //log.Info("GlobalExitRoot: ", ger)
-  //log.Info("Transactions: ", common.Bytes2Hex(fb.Transactions))
-  //log.Info("ForcedBatchNum: ", fb.ForceBatchNum)
-  //fullBlock, err := l1.ethClient.BlockByHash(ctx, vLog.BlockHash)
-  //if err != nil {
-  //	log.Errorf("error getting hashParent. BlockNumber: %d. Error: %v", vLog.BlockNumber, err)
-  //}
-  //log.Info("MinForcedTimestamp: ", fullBlock.Time())
-
   var sequences []etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData
   sequences = append(sequences, etrogpolygonzkevm.PolygonRollupBaseEtrogBatchData{
 	Transactions: encodedTxs,
@@ -175,17 +153,32 @@ func main() {
 }
 
 func setupEnvironment(ctx context.Context) *l2Stuff {
-
+  if !dockersArePreLaunched {
+	err := operations.Teardown()
+	if err != nil {
+	  log.Fatal(err)
+	}
+  }
   opsCfg := operations.GetDefaultOperationsConfig()
   opsCfg.State.MaxCumulativeGasUsed = 80000000000
 
   var opsman *operations.Manager
   var err error
 
-  log.Info("Using pre-launched dockers: no reset Database")
-  opsman, err = operations.NewManagerNoInitDB(ctx, opsCfg)
-  if err != nil {
-	log.Fatal(err)
+  if !dockersArePreLaunched {
+	log.Info("Launching dockers and resetting Database")
+	opsman, err = operations.NewManager(ctx, opsCfg)
+	if err != nil {
+	  log.Fatal(err)
+	}
+	log.Info("Setting Genesis")
+	setInitialState(opsman)
+  } else {
+	log.Info("Using pre-launched dockers: no reset Database")
+	opsman, err = operations.NewManagerNoInitDB(ctx, opsCfg)
+	if err != nil {
+	  log.Fatal(err)
+	}
   }
 
   // Load account with balance on local genesis
@@ -245,7 +238,7 @@ func setupEnvironmentL1(ctx context.Context) *l1Stuff {
   if err != nil {
 	log.Fatal(err)
   }
-  polAmount, _ := big.NewInt(0).SetString("9999999999999999999999", 0)
+  polAmount, _ := big.NewInt(0).SetString("19999999999999999999999", 0)
   log.Debugf("Charging pol from sequencer -> forcedBatchesAddress")
   txValue, err := polSmc.Transfer(authSequencer, common.HexToAddress(operations.DefaultForcedBatchesAddress), polAmount)
   if err != nil {
@@ -279,4 +272,24 @@ func setupEnvironmentL1(ctx context.Context) *l1Stuff {
 	log.Fatal(err)
   }
   return &l1Stuff{ethClient: ethClient, authSequencer: authSequencer, authForcedBatch: authForcedBatch, zkEvmAddr: zkEvmAddr, zkEvm: zkEvm}
+}
+
+func setInitialState(opsman *operations.Manager) {
+  genesisFileAsStr, err := config.LoadGenesisFileAsString("../../../config/test.genesis.config.json")
+  if err != nil {
+	log.Fatal(err)
+  }
+  genesisConfig, err := config.LoadGenesisFromJSONString(genesisFileAsStr)
+  if err != nil {
+	log.Fatal(err)
+  }
+  err = opsman.SetForkID(genesisConfig.Genesis.BlockNumber, forkID6)
+  if err != nil {
+	log.Fatal(err)
+  }
+  err = opsman.Setup()
+  if err != nil {
+	log.Fatal(err)
+  }
+  time.Sleep(5 * time.Second)
 }
