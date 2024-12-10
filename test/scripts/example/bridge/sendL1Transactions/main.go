@@ -16,54 +16,38 @@ import (
 )
 
 func main() {
-  var networks = []struct {
-	Name       string
-	URL        string
-	ChainID    uint64
-	PrivateKey string
-  }{
-	{Name: "Local L1", URL: operations.DefaultL1NetworkURL, ChainID: operations.DefaultL1ChainID, PrivateKey: operations.DefaultSequencerPrivateKey},
-	//{Name: "Local L2", URL: operations.DefaultL2NetworkURL, ChainID: operations.DefaultL2ChainID, PrivateKey: operations.DefaultSequencerPrivateKey},
-  }
+  ctx := context.Background()
 
-  for _, network := range networks {
-	ctx := context.Background()
+  log.Infof("connecting to %v: %v", "Local L1", operations.DefaultL1NetworkURL)
+  client, err := ethclient.Dial(operations.DefaultL1NetworkURL)
+  chkErr(err)
+  log.Infof("connected")
 
-	log.Infof("connecting to %v: %v", network.Name, network.URL)
-	client, err := ethclient.Dial(network.URL)
-	chkErr(err)
-	log.Infof("connected")
+  auth := operations.MustGetAuth(operations.DefaultSequencerPrivateKey, operations.DefaultL1ChainID)
+  chkErr(err)
 
-	auth := operations.MustGetAuth(network.PrivateKey, network.ChainID)
-	chkErr(err)
+  const receiverAddr = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
 
-	const receiverAddr = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
+  balance, err := client.BalanceAt(ctx, auth.From, nil)
+  chkErr(err)
+  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
 
-	balance, err := client.BalanceAt(ctx, auth.From, nil)
-	chkErr(err)
-	log.Debugf("ETH Balance for %v: %v", auth.From, balance)
+  // Valid ETH Transfer
+  balance, err = client.BalanceAt(ctx, auth.From, nil)
+  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
+  chkErr(err)
+  transferAmount := big.NewInt(1)
+  log.Debugf("Transfer Amount: %v", transferAmount)
 
-	// Valid ETH Transfer
-	balance, err = client.BalanceAt(ctx, auth.From, nil)
-	log.Debugf("ETH Balance for %v: %v", auth.From, balance)
-	chkErr(err)
-	transferAmount := big.NewInt(1)
-	log.Debugf("Transfer Amount: %v", transferAmount)
-
-	nonce, err := client.NonceAt(ctx, auth.From, nil)
-	chkErr(err)
-	// var lastTxHash common.Hash
-	for i := 0; i < 1000; i++ {
-	  nonce := nonce + uint64(i)
-	  log.Debugf("Sending TX to transfer ETH")
-	  to := common.HexToAddress(receiverAddr)
-	  tx := ethTransfer(ctx, client, auth, to, transferAmount, &nonce)
-	  fmt.Println("tx sent: ", tx.Hash().String())
-	  // lastTxHash = tx.Hash()
-	}
-
-	// err = operations.WaitTxToBeMined(client, lastTxHash, txTimeout)
-	// chkErr(err)
+  nonce, err := client.NonceAt(ctx, auth.From, nil)
+  chkErr(err)
+  // var lastTxHash common.Hash
+  for i := 0; i < 1000; i++ {
+	nonce := nonce + uint64(i)
+	log.Debugf("Sending TX to transfer ETH")
+	to := common.HexToAddress(receiverAddr)
+	tx := ethTransfer(ctx, client, auth, to, transferAmount, &nonce)
+	fmt.Println("tx sent: ", tx.Hash().String())
   }
 }
 
