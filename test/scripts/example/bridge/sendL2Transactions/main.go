@@ -15,18 +15,25 @@ import (
   "github.com/ethereum/go-ethereum/ethclient"
 )
 
+const (
+  DefaultDeployerAddress            = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  DefaultDeployerPrivateKey         = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+  DefaultSequencerAddress           = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
+  DefaultSequencerPrivateKey        = "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+  DefaultL2NetworkURL               = "http://localhost:8123"
+  DefaultL2ChainID           uint64 = 1001
+)
+
 func main() {
   ctx := context.Background()
 
-  log.Infof("connecting to %v: %v", "Local L2", operations.DefaultL2NetworkURL)
-  client, err := ethclient.Dial(operations.DefaultL2NetworkURL)
+  log.Infof("connecting to %v: %v", "Local L2", DefaultL2NetworkURL)
+  client, err := ethclient.Dial(DefaultL2NetworkURL)
   chkErr(err)
   log.Infof("connected")
 
-  auth := operations.MustGetAuth(operations.DefaultSequencerPrivateKey, operations.DefaultL2ChainID)
+  auth := operations.MustGetAuth(DefaultDeployerPrivateKey, DefaultL2ChainID)
   chkErr(err)
-
-  const receiverAddr = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
 
   balance, err := client.BalanceAt(ctx, auth.From, nil)
   chkErr(err)
@@ -45,7 +52,7 @@ func main() {
   for i := 0; i < 1000; i++ {
 	nonce := nonce + uint64(i)
 	log.Debugf("Sending TX to transfer ETH")
-	to := common.HexToAddress(receiverAddr)
+	to := common.HexToAddress(DefaultSequencerAddress)
 	tx := ethTransfer(ctx, client, auth, to, transferAmount, &nonce)
 	fmt.Println("tx sent: ", tx.Hash().String())
 	// lastTxHash = tx.Hash()
