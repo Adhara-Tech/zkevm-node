@@ -54,7 +54,28 @@ A motivation of why this problem is interesting, what the problem is and a brief
 
 ## Methodology
 
-A detailed guide for setting up the experiment and/or how the problem is solved.
+## L1 Addresses
+
+| Address                                    | Description                    |
+|--------------------------------------------|--------------------------------|
+| 0x8dAF17A20c9DBA35f005b6324F493785D239719d | Polygon ZKEVM                  |
+| 0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E | Polygon Bridge                 |
+| 0x5FbDB2315678afecb367f032d93F642f64180aa3 | Pol token                      |
+| 0x8A791620dd6260079BF849Dc5567aDC3F2FdC318 | Polygon GlobalExitRootManager  |
+| 0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e | Polygon RollupManager          |
+
+## Deployer Account
+
+| Address                                    | Private Key                                                        |
+|--------------------------------------------|--------------------------------------------------------------------|
+| 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 | 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 |
+
+## Sequencer Account
+
+| Address                                    | Private Key                                                        |
+|--------------------------------------------|--------------------------------------------------------------------|
+| 0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D | 0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e |
+
 
 ## Evaluation
 
