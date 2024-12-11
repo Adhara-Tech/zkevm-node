@@ -2,12 +2,9 @@ package main
 
 import (
   "context"
-  "fmt"
-  "github.com/0xPolygonHermez/zkevm-node/hex"
   "github.com/0xPolygonHermez/zkevm-node/log"
   "github.com/0xPolygonHermez/zkevm-node/test/operations"
   "github.com/ethereum/go-ethereum"
-  "github.com/ethereum/go-ethereum/accounts/abi/bind"
   "github.com/ethereum/go-ethereum/common"
   "github.com/ethereum/go-ethereum/core/types"
   "github.com/ethereum/go-ethereum/ethclient"
@@ -37,61 +34,37 @@ func main() {
   auth := operations.MustGetAuth(DefaultDeployerPrivateKey, DefaultL1ChainID)
   chkErr(err)
 
-  balance, err := client.BalanceAt(ctx, auth.From, nil)
+  senderBalance, err := client.BalanceAt(ctx, auth.From, nil)
   chkErr(err)
-  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
+  log.Debugf("ETH Balance for %v: %v", auth.From, senderBalance)
 
-  // Valid ETH Transfer
-  balance, err = client.BalanceAt(ctx, auth.From, nil)
-  log.Debugf("ETH Balance for %v: %v", auth.From, balance)
+  amount := big.NewInt(10) //nolint:gomnd
+  log.Debugf("Transfer Amount: %v", amount)
+
+  senderNonce, err := client.PendingNonceAt(ctx, auth.From)
   chkErr(err)
-  transferAmount := big.NewInt(1)
-  log.Debugf("Transfer Amount: %v", transferAmount)
+  log.Debugf("Sender Nonce: %v", senderNonce)
 
-  nonce, err := client.NonceAt(ctx, auth.From, nil)
+  to := common.HexToAddress(DefaultSequencerAddress)
+  log.Infof("Receiver Addr: %v", to.String())
+
+  gasLimit, err := client.EstimateGas(ctx, ethereum.CallMsg{From: auth.From, To: &to, Value: amount})
   chkErr(err)
-  // var lastTxHash common.Hash
-  for i := 0; i < 1000; i++ {
-	nonce := nonce + uint64(i)
-	log.Debugf("Sending TX to transfer ETH")
-	to := common.HexToAddress(DefaultSequencerAddress)
-	tx := ethTransfer(ctx, client, auth, to, transferAmount, &nonce)
-	fmt.Println("tx sent: ", tx.Hash().String())
-  }
-}
 
-func ethTransfer(ctx context.Context, client *ethclient.Client, auth *bind.TransactOpts, to common.Address, amount *big.Int, nonce *uint64) *types.Transaction {
-  if nonce == nil {
-	log.Infof("reading nonce for account: %v", auth.From.Hex())
-	var err error
-	n, err := client.NonceAt(ctx, auth.From, nil)
-	log.Infof("nonce: %v", n)
-	chkErr(err)
-	nonce = &n
+  gasPrice, err := client.SuggestGasPrice(ctx)
+  chkErr(err)
+
+  nTxs := 1 // send 1 tx by default
+  txs := make([]*types.Transaction, 0, nTxs)
+  for i := 0; i < nTxs; i++ {
+	tx := types.NewTransaction(senderNonce+uint64(i), to, amount, gasLimit, gasPrice, nil)
+	txs = append(txs, tx)
   }
 
-  gasPrice, err := client.SuggestGasPrice(context.Background())
+  err = operations.ApplyL1Txs(ctx, txs, auth, client)
   chkErr(err)
 
-  gasLimit, err := client.EstimateGas(context.Background(), ethereum.CallMsg{To: &to})
-  chkErr(err)
-
-  tx := types.NewTransaction(*nonce, to, amount, gasLimit, gasPrice, nil)
-
-  signedTx, err := auth.Signer(auth.From, tx)
-  chkErr(err)
-
-  log.Infof("sending transfer tx")
-  err = client.SendTransaction(ctx, signedTx)
-  chkErr(err)
-  log.Infof("tx sent: %v", signedTx.Hash().Hex())
-
-  rlp, err := signedTx.MarshalBinary()
-  chkErr(err)
-
-  log.Infof("tx rlp: %v", hex.EncodeToHex(rlp))
-
-  return signedTx
+  log.Infof("%d transactions successfully sent", nTxs)
 }
 
 func chkErr(err error) {
