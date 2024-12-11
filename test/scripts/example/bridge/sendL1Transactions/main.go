@@ -2,9 +2,11 @@ package main
 
 import (
   "context"
+  "github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmglobalexitroot"
   "github.com/0xPolygonHermez/zkevm-node/log"
   "github.com/0xPolygonHermez/zkevm-node/test/operations"
   "github.com/ethereum/go-ethereum"
+  "github.com/ethereum/go-ethereum/accounts/abi/bind"
   "github.com/ethereum/go-ethereum/common"
   "github.com/ethereum/go-ethereum/core/types"
   "github.com/ethereum/go-ethereum/ethclient"
@@ -12,15 +14,18 @@ import (
 )
 
 const (
-  DefaultDeployerAddress                     = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
-  DefaultDeployerPrivateKey                  = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
-  DefaultSequencerAddress                    = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
-  DefaultSequencerPrivateKey                 = "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
-  DefaultL1ZkEVMSmartContract                = "0x8dAF17A20c9DBA35f005b6324F493785D239719d"
-  DefaultL1RollupManagerSmartContract        = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e"
-  DefaultL1PolSmartContract                  = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-  DefaultL1NetworkURL                        = "http://localhost:8545"
-  DefaultL1ChainID                    uint64 = 1337
+  DefaultL1NetworkURL        = "http://localhost:8545"
+  DefaultL1ChainID    uint64 = 1337
+
+  DefaultDeployerAddress     = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+  DefaultDeployerPrivateKey  = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+  DefaultSequencerAddress    = "0x617b3a3528F9cDd6630fd3301B9c8911F7Bf063D"
+  DefaultSequencerPrivateKey = "0x28b2b0318721be8c8339199172cd7cc8f5e273800a35616ec893083a4b32c02e"
+
+  DefaultL1ZkEVMSmartContract         = "0x8dAF17A20c9DBA35f005b6324F493785D239719d"
+  DefaultL1RollupManagerSmartContract = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e"
+  DefaultL1PolSmartContract           = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  DefaultL1GERManagerSmartContract    = "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
 )
 
 func main() {
@@ -34,6 +39,31 @@ func main() {
   auth := operations.MustGetAuth(DefaultDeployerPrivateKey, DefaultL1ChainID)
   chkErr(err)
 
+  g, err := etrogpolygonzkevmglobalexitroot.NewEtrogpolygonzkevmglobalexitroot(common.HexToAddress(DefaultL1GERManagerSmartContract), client)
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+
+  // Check global exit root
+  lastGlobalExitRoot, err := g.GetLastGlobalExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("lastGlobalExitRoot: %s", common.BytesToHash(lastGlobalExitRoot[:]))
+
+  rollupExitRoot, err := g.LastRollupExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("rollupExitRoot: %s", common.BytesToHash(rollupExitRoot[:]))
+
+  mainnetExitRoot, err := g.LastMainnetExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("mainnetExitRoot: %s", common.BytesToHash(mainnetExitRoot[:]))
+
+  // Send transactions
   senderBalance, err := client.BalanceAt(ctx, auth.From, nil)
   chkErr(err)
   log.Debugf("ETH Balance for %v: %v", auth.From, senderBalance)
@@ -65,6 +95,26 @@ func main() {
   chkErr(err)
 
   log.Infof("%d transactions successfully sent", nTxs)
+
+  // Check global exit root
+  lastGlobalExitRoot, err = g.GetLastGlobalExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("lastGlobalExitRoot: %s", common.BytesToHash(lastGlobalExitRoot[:]))
+
+  rollupExitRoot, err = g.LastRollupExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("rollupExitRoot: %s", common.BytesToHash(rollupExitRoot[:]))
+
+  mainnetExitRoot, err = g.LastMainnetExitRoot(&bind.CallOpts{})
+  if err != nil {
+	log.Fatal("Error: ", err)
+  }
+  log.Infof("mainnetExitRoot: %s", common.BytesToHash(mainnetExitRoot[:]))
+
 }
 
 func chkErr(err error) {
