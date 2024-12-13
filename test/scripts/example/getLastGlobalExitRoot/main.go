@@ -1,15 +1,11 @@
 package main
 
 import (
-	"context"
-	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmbridge"
 	"github.com/0xPolygonHermez/zkevm-node/etherman/smartcontracts/etrogpolygonzkevmglobalexitroot"
 	"github.com/0xPolygonHermez/zkevm-node/log"
-	"github.com/0xPolygonHermez/zkevm-node/test/operations"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"math/big"
 )
 
 const (
@@ -27,17 +23,14 @@ const (
 	DefaultL1BridgeSmartContract     = "0xFe12ABaa190Ef0c8638Ee0ba9F828BF41368Ca0E"
 )
 
+const gerFinalityBlocks = uint64(9223372036854775807)
+
 func main() {
-	ctx := context.Background()
+	//ctx := context.Background()
 
 	client, err := ethclient.Dial(DefaultL1NetworkURL)
 	if err != nil {
 		log.Fatal("error connecting to the node. Error: ", err)
-	}
-
-	auth := operations.MustGetAuth(DefaultDeployerPrivateKey, DefaultL1ChainID)
-	if err != nil {
-		log.Fatal("Error: ", err)
 	}
 
 	g, err := etrogpolygonzkevmglobalexitroot.NewEtrogpolygonzkevmglobalexitroot(common.HexToAddress(DefaultL1GERManagerSmartContract), client)
@@ -63,40 +56,31 @@ func main() {
 	}
 	log.Infof("mainnetExitRoot: %s", common.BytesToHash(mainnetExitRoot[:]))
 
-	bridgeAddr := common.HexToAddress(DefaultL1BridgeSmartContract)
-	bridge, err := etrogpolygonzkevmbridge.NewEtrogpolygonzkevmbridge(bridgeAddr, client)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Make a bridge tx
-	auth.Value = big.NewInt(1000000000000000)
-	tx, err := bridge.BridgeAsset(auth, 1, auth.From, auth.Value, common.Address{}, true, []byte{})
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = operations.WaitTxToBeMined(ctx, client, tx, operations.DefaultTimeoutTxToBeMined)
-	if err != nil {
-		log.Fatal(err)
-	}
-	auth.Value = big.NewInt(0)
-
-	lastGlobalExitRoot, err = g.GetLastGlobalExitRoot(&bind.CallOpts{})
-	if err != nil {
-		log.Fatal("Error: ", err)
-	}
-	log.Infof("lastGlobalExitRoot: %s", common.BytesToHash(lastGlobalExitRoot[:]))
-
-	rollupExitRoot, err = g.LastRollupExitRoot(&bind.CallOpts{})
-	if err != nil {
-		log.Fatal("Error: ", err)
-	}
-	log.Infof("rollupExitRoot: %s", common.BytesToHash(rollupExitRoot[:]))
-
-	mainnetExitRoot, err = g.LastMainnetExitRoot(&bind.CallOpts{})
-	if err != nil {
-		log.Fatal("Error: ", err)
-	}
-	log.Infof("mainnetExitRoot: %s", common.BytesToHash(mainnetExitRoot[:]))
+	//opsCfg := operations.GetDefaultOperationsConfig()
+	//opsCfg.State.MaxCumulativeGasUsed = 80000000000
+	//var opsman *operations.Manager
+	//log.Info("Using pre-launched dockers: no reset Database")
+	//opsman, err = operations.NewManagerNoInitDB(ctx, opsCfg)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//initialGer, _, err := opsman.State().GetLatestGer(ctx, gerFinalityBlocks)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//log.Infof("BlockNumber: %v", initialGer.BlockNumber)
+	//log.Infof("GlobalExitRoot: %s", initialGer.GlobalExitRoot)
+	//log.Infof("MainnetExitRoot: %s", initialGer.MainnetExitRoot)
+	//log.Infof("RollupExitRoot: %s", initialGer.RollupExitRoot)
+	//
+	//l1Info, err := opsman.State().GetLatestL1InfoRoot(ctx, gerFinalityBlocks)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//log.Infof("BlockNumber: %v", l1Info.GlobalExitRoot.BlockNumber)
+	//log.Infof("GlobalExitRoot: %s", l1Info.GlobalExitRoot.GlobalExitRoot)
+	//log.Infof("MainnetExitRoot: %s", l1Info.GlobalExitRoot.MainnetExitRoot)
+	//log.Infof("RollupExitRoot: %s", l1Info.GlobalExitRoot.RollupExitRoot)
 
 }
