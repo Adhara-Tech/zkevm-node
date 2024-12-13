@@ -1,6 +1,4 @@
-# Title
-
-The title of the research topic or experiment.
+# Polygon ZkEvm Node
 
 ## Introduction
 
