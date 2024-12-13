@@ -77,7 +77,26 @@ A motivation of why this problem is interesting, what the problem is and a brief
 
 ## Evaluation
 
-A guide to running tests against the experiment and/or some information around how to assess the solution. This section may also include a results table or outputs obtained from the testing process.
+```shell
+adhara-tech/zkevm-node/test$ make run
+```
+
+```shell
+adhara-tech/zkevm-node/test/scripts/example/bridge/bridgeAsset$ go run main.go
+```
+
+```shell
+adhara-tech/zkevm-node/test/scripts/example/getLastGlobalExitRoot$ go run main.go
+```
+
+```shell
+adhara-tech/zkevm-node/test/scripts/example/bridge/sendL2Transactions$ go run main.go
+```
+
+```shell
+adhara-tech/zkevm-node/test/scripts/example/getLastGlobalExitRoot$ go run main.go
+
+```
 
 ## Main Findings and Conclusions
 
