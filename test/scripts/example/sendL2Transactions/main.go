@@ -123,33 +123,6 @@ func main() {
 	}
 	log.Infof("mainnetExitRoot: %s", common.BytesToHash(mainnetExitRoot[:]))
 
-	//opsCfg := operations.GetDefaultOperationsConfig()
-	//opsCfg.State.MaxCumulativeGasUsed = 80000000000
-	//var opsman *operations.Manager
-	//log.Info("Using pre-launched dockers: no reset Database")
-	//opsman, err = operations.NewManagerNoInitDB(ctx, opsCfg)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//initialGer, _, err := opsman.State().GetLatestGer(ctx, gerFinalityBlocks)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//log.Infof("BlockNumber: %v", initialGer.BlockNumber)
-	//log.Infof("GlobalExitRoot: %s", initialGer.GlobalExitRoot)
-	//log.Infof("MainnetExitRoot: %s", initialGer.MainnetExitRoot)
-	//log.Infof("RollupExitRoot: %s", initialGer.RollupExitRoot)
-	//
-	//l1Info, err := opsman.State().GetLatestL1InfoRoot(ctx, gerFinalityBlocks)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//log.Infof("BlockNumber: %v", l1Info.GlobalExitRoot.BlockNumber)
-	//log.Infof("GlobalExitRoot: %s", l1Info.GlobalExitRoot.GlobalExitRoot)
-	//log.Infof("MainnetExitRoot: %s", l1Info.GlobalExitRoot.MainnetExitRoot)
-	//log.Infof("RollupExitRoot: %s", l1Info.GlobalExitRoot.RollupExitRoot)
-
 	log.Infof("connecting to %v: %v", "Local L2", DefaultL2NetworkURL)
 	client, err := ethclient.Dial(DefaultL2NetworkURL)
 	chkErr(err)
@@ -193,25 +166,6 @@ func main() {
 	chkErr(err)
 	log.Info("l2BlockNumbers", l2BlockNumbers)
 	log.Infof("%d transactions successfully sent", nTxs)
-
-	// Check roots again
-	//initialGer, _, err = opsman.State().GetLatestGer(ctx, gerFinalityBlocks)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//log.Infof("BlockNumber: %v", initialGer.BlockNumber)
-	//log.Infof("GlobalExitRoot: %s", initialGer.GlobalExitRoot)
-	//log.Infof("MainnetExitRoot: %s", initialGer.MainnetExitRoot)
-	//log.Infof("RollupExitRoot: %s", initialGer.RollupExitRoot)
-	//
-	//l1Info, err = opsman.State().GetLatestL1InfoRoot(ctx, gerFinalityBlocks)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//log.Infof("BlockNumber: %v", l1Info.GlobalExitRoot.BlockNumber)
-	//log.Infof("GlobalExitRoot: %s", l1Info.GlobalExitRoot.GlobalExitRoot)
-	//log.Infof("MainnetExitRoot: %s", l1Info.GlobalExitRoot.MainnetExitRoot)
-	//log.Infof("RollupExitRoot: %s", l1Info.GlobalExitRoot.RollupExitRoot)
 
 	lastGlobalExitRoot, err = g.GetLastGlobalExitRoot(&bind.CallOpts{})
 	if err != nil {
