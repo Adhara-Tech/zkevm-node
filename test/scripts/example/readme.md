@@ -2,21 +2,15 @@
 
 ## Introduction
 
-The LxLy bridge is a central component to the AggLayer which offers multi-chain interoperability.
+The zkEVM bridge is an interoperability solution enabling cross-chain communication between a layer 2 (L2) chain and layer 1 (L1) Ethereum chain or between two L2 chains.
 
-The LxLy bridge currently works with the Polygon zkEVM as the L2 and the Ethereum network as L1.
+The bridge’s architecture consists of three main smart contract components:
 
-The LxLy bridge is an interoperability solution aimed at enabling cross-chain communication among networks. It facilitates interaction between two L2 chains or between an L2 chain and Ethereum as the L1.
-
-The zkEVM bridge’s architecture consists mainly of three (3) smart contracts:
-
-- The bridge contract (PolygonZkEVMBridge.sol), which handles transfer of assets and messages between networks.
-- The global exit root manager contract (PolygonZkEVMGlobalExitRoot.sol), which facilitates synchronization of state-info between the L2 and the L1.
-- The Polygon zkEVM consensus contract (PolygonZkEVMEtrog.sol), which handles the sequencing and verification of transactions in the form of batches.
+1. The bridge contract (PolygonZkEVMBridge.sol), which handles the transfer of assets and messages between networks.
+2. The global exit root manager contract (PolygonZkEVMGlobalExitRoot.sol), which facilitates synchronization of state-info between L2 and the L1.
+3. The Polygon zkEVM consensus contract (PolygonZkEVMEtrog.sol), which handles the sequencing and verification of batched transactions.
 
 ### Global exit trees
-
-Critical to the design of the LxLy bridge are exit trees and the global exit tree.
 
 Each chain has a Merkle tree called an exit tree, to which a leaf containing data of each asset-transfer is appended. Since such a leaf records data of the asset exiting the chain, it is called an Exit Leaf.
 
@@ -34,10 +28,10 @@ Consensus contracts of each connected network handle the sequencing of their own
 
 The rollup manager contract stores the information of the sequenced batches in the form of an accumulated input hash, as in the version-1 of the zkEVM bridge.
 
-Once sequenced batches have been verified, the global exit tree gets updated, in an approach similar to the zkEVM bridge version-1.
+Once sequenced batches have been verified, the global exit tree gets updated.
 
 ### Overall flow of events
-The following diagram captures the following flow of events, most of which are handled by the rollup manager contract:
+The following steps capture the flow of events, most of which are handled by the rollup manager contract:
 
 - Updating rollup manager’s lists.
 - Creating rollups.
@@ -81,21 +75,24 @@ A motivation of why this problem is interesting, what the problem is and a brief
 adhara-tech/zkevm-node/test$ make run
 ```
 
+To bridge an asset from L1 to L2, run.
 ```shell
-adhara-tech/zkevm-node/test/scripts/example/bridge/bridgeAsset$ go run main.go
+adhara-tech/zkevm-node/test/scripts/example/bridgeAsset$ go run main.go
 ```
 
+To view the global exit root, rollup root and mainnet root, run:
 ```shell
 adhara-tech/zkevm-node/test/scripts/example/getLastGlobalExitRoot$ go run main.go
 ```
 
+To send transactions on L1, run:
 ```shell
-adhara-tech/zkevm-node/test/scripts/example/bridge/sendL2Transactions$ go run main.go
+adhara-tech/zkevm-node/test/scripts/example/sendLLTransactions$ go run main.go
 ```
 
+To send transactions on L2, run:
 ```shell
-adhara-tech/zkevm-node/test/scripts/example/getLastGlobalExitRoot$ go run main.go
-
+adhara-tech/zkevm-node/test/scripts/example/sendL2Transactions$ go run main.go
 ```
 
 ## Main Findings and Conclusions
