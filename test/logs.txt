@@ -1,0 +1,1022 @@
+zkevm-approve          | 2025-01-20T06:56:44.462Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-approve          | 2025-01-20T06:56:44.462Z	[34mINFO[0m	etherman/etherman.go:1915	reading key from: /pk/keystore	{"pid": 1, "version": "v0.6.6"}
+zkevm-approve          | 2025-01-20T06:56:44.463Z	[34mINFO[0m	etherman/etherman.go:1905	decrypting key from: /pk/keystore	{"pid": 1, "version": "v0.6.6"}
+zkevm-approve          | 2025-01-20T06:56:44.994Z	[34mINFO[0m	etherman/etherman.go:1891	loaded authorization for address: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266	{"pid": 1, "version": "v0.6.6"}
+zkevm-approve          | Local network. Tx Hash: 0x48a218b3d4fbdfbd2013152cff1ded480ff3075857a62cd6b7e907bf26ce5a67
+zkevm-sequence-sender  | Version:      v0.6.6
+zkevm-sequence-sender  | Git revision: 05a48269
+zkevm-prover           | {"level":"info","ts":"1737356204.067647","msg":"file2json() loading JSON file /usr/src/app/config.json","pid":"","tid":"3100c40","version":"v6.0.0"}
+zkevm-prover           | 20250120_065644_067916 89dc145 3100c40 Version: v6.0.0
+zkevm-prover           | Checking error channel; ignore this trace
+zkevm-prover           | 20250120_065644_067933 89dc145 3100c40 zkWarning: Checking warning channel; ignore this trace
+zkevm-prover           | 20250120_065644_067934 89dc145 3100c40 Config file: /usr/src/app/config.json
+zkevm-prover           | 20250120_065644_068694 89dc145 3100c40 Number of cores=16
+zkevm-prover           | 20250120_065644_068757 89dc145 3100c40 IP address=172.19.0.6
+zkevm-prover           | 20250120_065644_068760 89dc145 3100c40 Configuration:
+zkevm-prover           | 20250120_065644_068761 89dc145 3100c40     proverID=89dc1450-c691-4f28-9100-0039097c8965
+zkevm-prover           | 20250120_065644_068762 89dc145 3100c40     proverName=test-prover
+zkevm-prover           | 20250120_065644_068763 89dc145 3100c40     runExecutorServer=1
+zkevm-prover           | 20250120_065644_068765 89dc145 3100c40     runHashDBServer=1
+zkevm-prover           | 20250120_065644_068766 89dc145 3100c40     runAggregatorClient=0
+zkevm-prover           | 20250120_065644_068767 89dc145 3100c40     runAggregatorClientMock=true
+zkevm-prover           | 20250120_065644_068768 89dc145 3100c40     executeInParallel=1
+zkevm-prover           | 20250120_065644_068770 89dc145 3100c40     useMainExecGenerated=1
+zkevm-prover           | 20250120_065644_068771 89dc145 3100c40     useMainExecC=0
+zkevm-prover           | 20250120_065644_068772 89dc145 3100c40     executorTimeStatistics=0
+zkevm-prover           | 20250120_065644_068773 89dc145 3100c40     saveOutputToFile=true
+zkevm-prover           | 20250120_065644_068774 89dc145 3100c40     saveProofToFile=true
+zkevm-prover           | 20250120_065644_068775 89dc145 3100c40     loadDBToMemCache=0
+zkevm-prover           | 20250120_065644_068776 89dc145 3100c40     logExecutorServerTxs=true
+zkevm-prover           | 20250120_065644_068777 89dc145 3100c40     executorServerPort=50071
+zkevm-prover           | 20250120_065644_068778 89dc145 3100c40     executorClientPort=50071
+zkevm-prover           | 20250120_065644_068779 89dc145 3100c40     executorClientHost=127.0.0.1
+zkevm-sequence-sender  | Git branch:   v0.6.6-modified-node
+zkevm-sequence-sender  | Go version:   go1.21.13
+zkevm-sequence-sender  | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-sequence-sender  | OS/Arch:      linux/amd64
+zkevm-sequence-sender  | 2025-01-20T06:56:52.904Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.915Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.926Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-prover           | 20250120_065644_068780 89dc145 3100c40     executorClientLoops=1
+zkevm-prover           | 20250120_065644_068781 89dc145 3100c40     executorClientCheckNewStateRoot=0
+zkevm-prover           | 20250120_065644_068782 89dc145 3100c40     executorClientResetDB=0
+zkevm-prover           | 20250120_065644_068783 89dc145 3100c40     hashDBServerPort=50061
+zkevm-prover           | 20250120_065644_068784 89dc145 3100c40     hashDBURL=local
+zkevm-prover           | 20250120_065644_068785 89dc145 3100c40     hashDB64=0
+zkevm-prover           | 20250120_065644_068787 89dc145 3100c40     kvDBMaxVersions=131072
+zkevm-prover           | 20250120_065644_068788 89dc145 3100c40     dbCacheSynchURL=
+zkevm-prover           | 20250120_065644_068790 89dc145 3100c40     hashDBFileName=
+zkevm-prover           | 20250120_065644_068791 89dc145 3100c40     hashDBFileSize=128
+zkevm-prover           | 20250120_065644_068793 89dc145 3100c40     hastDBFolder=hashdb
+zkevm-prover           | 20250120_065644_068794 89dc145 3100c40     aggregatorServerPort=50081
+zkevm-prover           | 20250120_065644_068796 89dc145 3100c40     aggregatorClientPort=50081
+zkevm-prover           | 20250120_065644_068798 89dc145 3100c40     aggregatorClientHost=zkevm-aggregator
+zkevm-prover           | 20250120_065644_068800 89dc145 3100c40     aggregatorClientMockTimeout=1
+zkevm-prover           | 20250120_065644_068801 89dc145 3100c40     aggregatorClientWatchdogTimeout=60000000
+zkevm-prover           | 20250120_065644_068803 89dc145 3100c40     aggregatorClientMaxStreams=0
+zkevm-prover           | 20250120_065644_068805 89dc145 3100c40     aggregatorClientMaxRecvMsgSize=1073741824
+zkevm-prover           | 20250120_065644_068807 89dc145 3100c40     inputFile=input_executor_0.json
+zkevm-prover           | 20250120_065644_068809 89dc145 3100c40     inputFile2=input_executor_1.json
+zkevm-state-db         | The files belonging to this database system will be owned by user "postgres".
+zkevm-state-db         | This user must also own the server process.
+zkevm-json-rpc         | Version:      v0.6.6
+zkevm-json-rpc         | Git revision: 05a48269
+zkevm-json-rpc         | Git branch:   v0.6.6-modified-node
+zkevm-sequencer        | Version:      v0.6.6
+zkevm-l2gaspricer      | Version:      v0.6.6
+zkevm-sequencer        | Git revision: 05a48269
+zkevm-l2gaspricer      | Git revision: 05a48269
+zkevm-l2gaspricer      | Git branch:   v0.6.6-modified-node
+zkevm-json-rpc         | Go version:   go1.21.13
+zkevm-json-rpc         | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-state-db         | 
+zkevm-state-db         | The database cluster will be initialized with locale "en_US.utf8".
+zkevm-mock-l1-network  | errexit         on
+zkevm-mock-l1-network  | noglob          off
+zkevm-mock-l1-network  | ignoreeof       off
+zkevm-mock-l1-network  | monitor         off
+zkevm-mock-l1-network  | noexec          off
+zkevm-mock-l1-network  | xtrace          on
+zkevm-mock-l1-network  | verbose         off
+zkevm-eth-tx-manager   | Version:      v0.6.6
+zkevm-l2gaspricer      | Go version:   go1.21.13
+zkevm-mock-l1-network  | noclobber       off
+zkevm-eth-tx-manager   | Git revision: 05a48269
+zkevm-mock-l1-network  | allexport       off
+zkevm-sequence-sender  | 2025-01-20T06:56:52.927Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | notify          off
+zkevm-mock-l1-network  | nounset         on
+zkevm-l2gaspricer      | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-mock-l1-network  | errtrace        off
+zkevm-mock-l1-network  | vi              off
+zkevm-state-db         | The default database encoding has accordingly been set to "UTF8".
+zkevm-json-rpc         | OS/Arch:      linux/amd64
+zkevm-state-db         | The default text search configuration will be set to "english".
+zkevm-json-rpc         | 2025-01-20T06:56:54.033Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-prover           | 20250120_065644_068810 89dc145 3100c40     outputPath=output
+zkevm-prover           | 20250120_065644_068812 89dc145 3100c40     configPath=config
+zkevm-prover           | 20250120_065644_068814 89dc145 3100c40     zkevmCmPols=
+zkevm-prover           | 20250120_065644_068815 89dc145 3100c40     c12aCmPols=
+zkevm-prover           | 20250120_065644_068817 89dc145 3100c40     recursive1CmPols=
+zkevm-prover           | 20250120_065644_068818 89dc145 3100c40     zkevmConstPols=config/zkevm/zkevm.const
+zkevm-prover           | 20250120_065644_068820 89dc145 3100c40     c12aConstPols=config/c12a/c12a.const
+zkevm-event-db         | The files belonging to this database system will be owned by user "postgres".
+zkevm-pool-db          | The files belonging to this database system will be owned by user "postgres".
+zkevm-pool-db          | This user must also own the server process.
+zkevm-pool-db          | 
+zkevm-pool-db          | The database cluster will be initialized with locale "en_US.utf8".
+zkevm-pool-db          | The default database encoding has accordingly been set to "UTF8".
+zkevm-l2gaspricer      | OS/Arch:      linux/amd64
+zkevm-pool-db          | The default text search configuration will be set to "english".
+zkevm-sequencer        | Git branch:   v0.6.6-modified-node
+zkevm-sequencer        | Go version:   go1.21.13
+zkevm-sequencer        | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-sequencer        | OS/Arch:      linux/amd64
+zkevm-sequencer        | 2025-01-20T06:56:52.550Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.559Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.928Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | Version:      v0.6.6
+zkevm-aggregator       | Git revision: 05a48269
+zkevm-event-db         | This user must also own the server process.
+zkevm-event-db         | 
+zkevm-event-db         | The database cluster will be initialized with locale "en_US.utf8".
+zkevm-state-db         | 
+zkevm-state-db         | Data page checksums are disabled.
+zkevm-state-db         | 
+zkevm-state-db         | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+zkevm-state-db         | creating subdirectories ... ok
+zkevm-state-db         | selecting dynamic shared memory implementation ... posix
+zkevm-state-db         | selecting default max_connections ... 100
+zkevm-state-db         | selecting default shared_buffers ... 128MB
+zkevm-state-db         | selecting default time zone ... Etc/UTC
+zkevm-state-db         | creating configuration files ... ok
+zkevm-state-db         | running bootstrap script ... ok
+zkevm-state-db         | performing post-bootstrap initialization ... ok
+zkevm-state-db         | initdb: warning: enabling "trust" authentication for local connections
+zkevm-json-rpc         | 2025-01-20T06:56:54.040Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-eth-tx-manager   | Git branch:   v0.6.6-modified-node
+zkevm-eth-tx-manager   | Go version:   go1.21.13
+zkevm-eth-tx-manager   | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-state-db         | syncing data to disk ... ok
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-event-db         | The default database encoding has accordingly been set to "UTF8".
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-event-db         | The default text search configuration will be set to "english".
+zkevm-eth-tx-manager   | OS/Arch:      linux/amd64
+zkevm-event-db         | 
+zkevm-event-db         | Data page checksums are disabled.
+zkevm-event-db         | 
+zkevm-event-db         | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+zkevm-event-db         | creating subdirectories ... ok
+zkevm-event-db         | selecting dynamic shared memory implementation ... posix
+zkevm-event-db         | selecting default max_connections ... 100
+zkevm-event-db         | selecting default shared_buffers ... 128MB
+zkevm-event-db         | selecting default time zone ... Etc/UTC
+zkevm-event-db         | creating configuration files ... ok
+zkevm-event-db         | running bootstrap script ... ok
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.248Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         | performing post-bootstrap initialization ... ok
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.256Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | 
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.158Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | Git branch:   v0.6.6-modified-node
+zkevm-aggregator       | Go version:   go1.21.13
+zkevm-aggregator       | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-aggregator       | OS/Arch:      linux/amd64
+zkevm-sequence-sender  | 2025-01-20T06:56:52.928Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.607Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | pipefail        off
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-state-db         | 
+zkevm-mock-l1-network  | + geth --http --http.api admin,eth,debug,miner,net,txpool,personal,web3 --http.addr 0.0.0.0 --http.corsdomain '*' --http.vhosts '*' --ws --ws.origins '*' --ws.addr 0.0.0.0 --dev --dev.period 1 --datadir /geth_data --syncmode full --rpc.allow-unprotected-txs
+zkevm-pool-db          | 
+zkevm-mock-l1-network  | + nginx -g 'daemon off;'
+zkevm-pool-db          | Data page checksums are disabled.
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.685] Starting Geth in ephemeral dev mode...
+zkevm-pool-db          | 
+zkevm-mock-l1-network  | WARN [01-20|06:56:42.685] You are running Geth in --dev mode. Please note the following:
+zkevm-prover           | 20250120_065644_068822 89dc145 3100c40     mapConstPolsFile=0
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-prover           | 20250120_065644_068823 89dc145 3100c40     zkevmConstantsTree=config/zkevm/zkevm.consttree
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.269Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.270Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.270Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.270Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.271Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.271Z	[34mINFO[0m	metrics/prometheus.go:604	Creating Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.271Z	[34mINFO[0m	metrics/prometheus.go:606	Histogram Vec Metric 'state_executor_processing_time' successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-event-db         | initdb: warning: enabling "trust" authentication for local connections
+zkevm-event-db         | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+zkevm-event-db         | syncing data to disk ... ok
+zkevm-event-db         | 
+zkevm-event-db         | 
+zkevm-event-db         | Success. You can now start the database server using:
+zkevm-sync             | Version:      v0.6.6
+zkevm-sync             | Git revision: 05a48269
+zkevm-sync             | Git branch:   v0.6.6-modified-node
+zkevm-sync             | Go version:   go1.21.13
+zkevm-sync             | Built:        Mon, 20 Jan 2025 06:54:46 +0000
+zkevm-sync             | OS/Arch:      linux/amd64
+zkevm-sync             | 2025-01-20T06:56:47.803Z	[34mINFO[0m	cmd/run.go:55	Starting application	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:47.803Z	[34mINFO[0m	cmd/run.go:69	Running DB migrations host: zkevm-state-db:5432 db:state_db user:state_user	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:47.803Z	[34mINFO[0m	cmd/run.go:273	running migrations for zkevm-state-db	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:47.803Z	[34mINFO[0m	db/db.go:47	running migrations up	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.226Z	[34mINFO[0m	db/db.go:83	successfully ran 20 migrations	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.232Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.929Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.929Z	[34mINFO[0m	metrics/prometheus.go:604	Creating Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.929Z	[34mINFO[0m	metrics/prometheus.go:606	Histogram Vec Metric 'state_executor_processing_time' successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.929Z	[34mINFO[0m	metrics/prometheus.go:608	Registering Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.929Z	[34mINFO[0m	metrics/prometheus.go:610	Histogram Vec Metric 'state_executor_processing_time' successfully registered!	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[34mINFO[0m	l1infotree/tree.go:39	Resetting L1InfoTree...	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	l1infotree/tree.go:51	Reset initial count: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	l1infotree/tree.go:52	Reset initial root: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[34mINFO[0m	cmd/run.go:519	Starting L1InfoRoot: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	cmd/run.go:628	getting forkIDs from db	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	cmd/run.go:634	numberForkIDs: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	cmd/run.go:682	Getting initial forkID	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	etherman/etherman.go:344	Getting forkIDs from blockNumber: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	etherman/etherman.go:347	Using ForkIDChunkSize: 20000	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.930Z	[35mDEBUG[0m	etherman/etherman.go:354	INTERVAL. Initial: 136. Final: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.931Z	[35mDEBUG[0m	etherman/etherman.go:451	ForkIDs found: []	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | 2025-01-20T06:56:52.931Z	[31mFATAL[0m	cmd/run.go:523	error getting forkIDs. Error: error: no forkID received. It should receive at least one, please check the configuration...
+zkevm-sequence-sender  | /src/log/log.go:142 github.com/0xPolygonHermez/zkevm-node/log.appendStackTraceMaybeArgs()
+zkevm-sequence-sender  | /src/log/log.go:223 github.com/0xPolygonHermez/zkevm-node/log.Fatal()
+zkevm-sequence-sender  | /src/cmd/run.go:523 main.newState()
+zkevm-sequence-sender  | /src/cmd/run.go:122 main.start()
+zkevm-sequence-sender  | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-sequence-sender  | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-sequence-sender  | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335 github.com/urfave/cli/v2.(*App).RunContext()
+zkevm-sequence-sender  | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309 github.com/urfave/cli/v2.(*App).Run()
+zkevm-sequence-sender  | /src/cmd/main.go:191 main.main()
+zkevm-sequence-sender  | /usr/local/go/src/runtime/proc.go:267 runtime.main()
+zkevm-sequence-sender  | 	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequence-sender  | main.newState
+zkevm-sequence-sender  | 	/src/cmd/run.go:523
+zkevm-prover           | 20250120_065644_068824 89dc145 3100c40     c12aConstantsTree=config/c12a/c12a.consttree
+zkevm-prover           | 20250120_065644_068825 89dc145 3100c40     mapConstantsTreeFile=0
+zkevm-prover           | 20250120_065644_068826 89dc145 3100c40     finalVerkey=config/final/final.fflonk.verkey.json
+zkevm-prover           | 20250120_065644_068827 89dc145 3100c40     zkevmVerifier=config/zkevm/zkevm.verifier.dat
+zkevm-prover           | 20250120_065644_068828 89dc145 3100c40     zkevmVerkey=config/zkevm/zkevm.verkey.json
+zkevm-prover           | 20250120_065644_068829 89dc145 3100c40     c12aVerkey=config/c12a/c12a.verkey.json
+zkevm-prover           | 20250120_065644_068830 89dc145 3100c40     recursive1Verifier=config/recursive1/recursive1.verifier.dat
+zkevm-prover           | 20250120_065644_068831 89dc145 3100c40     recursive1Verkey=config/recursive1/recursive1.verkey.json
+zkevm-prover           | 20250120_065644_068832 89dc145 3100c40     recursive2Verifier=config/recursive2/recursive2.verifier.dat
+zkevm-prover           | 20250120_065644_068833 89dc145 3100c40     recursive2Verkey=config/recursive2/recursive2.verkey.json
+zkevm-prover           | 20250120_065644_068834 89dc145 3100c40     recursivefVerifier=config/recursivef/recursivef.verifier.dat
+zkevm-prover           | 20250120_065644_068835 89dc145 3100c40     recursivefVerkey=config/recursivef/recursivef.verkey.json
+zkevm-prover           | 20250120_065644_068836 89dc145 3100c40     finalVerifier=config/final/final.verifier.dat
+zkevm-prover           | 20250120_065644_068837 89dc145 3100c40     finalStarkZkey=config/final/final.fflonk.zkey
+zkevm-prover           | 20250120_065644_068838 89dc145 3100c40     publicsOutput=public.json
+zkevm-prover           | 20250120_065644_068839 89dc145 3100c40     proofFile=proof.json
+zkevm-prover           | 20250120_065644_068840 89dc145 3100c40     keccakScriptFile=config/scripts/keccak_script.json
+zkevm-prover           | 20250120_065644_068841 89dc145 3100c40     sha256ScriptFile=config/scripts/sha256_script.json
+zkevm-prover           | 20250120_065644_068843 89dc145 3100c40     keccakPolsFile=keccak_pols.json
+zkevm-prover           | 20250120_065644_068845 89dc145 3100c40     sha256PolsFile=sha256_connections.json
+zkevm-prover           | 20250120_065644_068847 89dc145 3100c40     keccakConnectionsFile=keccak_connections.json
+zkevm-prover           | 20250120_065644_068848 89dc145 3100c40     storageRomFile=config/scripts/storage_sm_rom.json
+zkevm-prover           | 20250120_065644_068850 89dc145 3100c40     zkevmStarkInfo=config/zkevm/zkevm.starkinfo.json
+zkevm-prover           | 20250120_065644_068852 89dc145 3100c40     c12aStarkInfo=config/c12a/c12a.starkinfo.json
+zkevm-prover           | 20250120_065644_068854 89dc145 3100c40     databaseURL=postg...
+zkevm-prover           | 20250120_065644_068855 89dc145 3100c40     dbNodesTableName=state.nodes
+zkevm-prover           | 20250120_065644_068857 89dc145 3100c40     dbProgramTableName=state.program
+zkevm-prover           | 20250120_065644_068859 89dc145 3100c40     dbMultiWrite=1
+zkevm-prover           | 20250120_065644_068861 89dc145 3100c40     dbMultiWriteSingleQuerySize=20971520
+zkevm-prover           | 20250120_065644_068862 89dc145 3100c40     dbConnectionsPool=1
+zkevm-prover           | 20250120_065644_068863 89dc145 3100c40     dbNumberOfPoolConnections=30
+zkevm-prover           | 20250120_065644_068864 89dc145 3100c40     dbMetrics=1
+zkevm-prover           | 20250120_065644_068865 89dc145 3100c40     dbClearCache=0
+zkevm-prover           | 20250120_065644_068866 89dc145 3100c40     dbGetTree=1
+zkevm-state-db         | Success. You can now start the database server using:
+zkevm-prover           | 20250120_065644_068867 89dc145 3100c40     dbReadOnly=0
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.271Z	[34mINFO[0m	metrics/prometheus.go:608	Registering Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.166Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.177Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.178Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.179Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-pool-db          | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+zkevm-mock-l1-network  | 
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-state-db         | 
+zkevm-prover           | 20250120_065644_068868 89dc145 3100c40     dbReadRetryCounter=10
+zkevm-prover           | 20250120_065644_068869 89dc145 3100c40     dbReadRetryDelay=100000
+zkevm-prover           | 20250120_065644_068870 89dc145 3100c40     stateManager=1
+zkevm-prover           | 20250120_065644_068871 89dc145 3100c40     stateManagerPurge=1
+zkevm-prover           | 20250120_065644_068872 89dc145 3100c40     cleanerPollingPeriod=600
+zkevm-prover           | 20250120_065644_068873 89dc145 3100c40     requestsPersistence=3600
+zkevm-prover           | 20250120_065644_068874 89dc145 3100c40     maxExecutorThreads=20
+zkevm-prover           | 20250120_065644_068875 89dc145 3100c40     maxProverThreads=8
+zkevm-prover           | 20250120_065644_068876 89dc145 3100c40     maxHashDBThreads=8
+zkevm-prover           | 20250120_065644_068877 89dc145 3100c40     dbMTCacheSize=1024
+zkevm-prover           | 20250120_065644_068878 89dc145 3100c40     useAssociativeCache=0
+zkevm-prover           | 20250120_065644_068879 89dc145 3100c40     log2DbMTAssociativeCacheSize=25
+zkevm-prover           | 20250120_065644_068881 89dc145 3100c40     log2DbMTAssociativeCacheIndexesSize=28
+zkevm-prover           | 20250120_065644_068882 89dc145 3100c40     log2DbKVAssociativeCacheSize=25
+zkevm-prover           | 20250120_065644_068883 89dc145 3100c40     log2DbKVAssociativeCacheIndexesSize=28
+zkevm-prover           | 20250120_065644_068884 89dc145 3100c40     log2DbVersionsAssociativeCacheSize=25
+zkevm-prover           | 20250120_065644_068885 89dc145 3100c40     log2DbVersionsAssociativeCacheIndexesSize=28
+zkevm-prover           | 20250120_065644_068886 89dc145 3100c40     dbProgramCacheSize=512
+zkevm-prover           | 20250120_065644_068887 89dc145 3100c40     loadDBToMemTimeout=30000000
+zkevm-prover           | 20250120_065644_068888 89dc145 3100c40     fullTracerTraceReserveSize=262144
+zkevm-prover           | 20250120_065644_068889 89dc145 3100c40     ECRecoverPrecalc=0
+zkevm-prover           | 20250120_065644_068890 89dc145 3100c40     ECRecoverPrecalcNThreads=4
+zkevm-prover           | 20250120_065644_068895 89dc145 3100c40 --> WHOLE_PROCESS starting...
+zkevm-prover           | 20250120_065644_070194 89dc145 3100c40 --> DB_INIT_REMOTE starting...
+zkevm-prover           | 20250120_065644_070227 89dc145 2a00640 dbSenderThread() started
+zkevm-prover           | 20250120_065644_071112 89dc145 3100c40 zkError: Database::initRemote() exception: connection to server at "zkevm-state-db" (172.19.0.2), port 5432 failed: Connection refused
+zkevm-prover           | 	Is the server running on that host and accepting TCP/IP connections?
+zkevm-prover           | 
+zkevm-prover           | 20250120_065644_073443 89dc145 3100c40 CALL STACK
+zkevm-prover           | 20250120_065644_073448 89dc145 3100c40 0: call=zkProver(_Z14printCallStackv+0x45) [0x602929488b15]
+zkevm-prover           | 20250120_065644_073449 89dc145 3100c40 1: call=zkProver(_Z11exitProcessv+0x16) [0x6029294ab656]
+zkevm-prover           | 20250120_065644_073450 89dc145 3100c40 2: call=zkProver(+0x2c4ed6) [0x602908a58ed6]
+zkevm-state-db         |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.179Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | 
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.179Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | waiting for server to start....2025-01-20 06:56:43.340 UTC [47] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-state-db         | 2025-01-20 06:56:43.345 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-state-db         | 2025-01-20 06:56:43.367 UTC [50] LOG:  database system was shut down at 2025-01-20 06:56:42 UTC
+zkevm-state-db         | 2025-01-20 06:56:43.385 UTC [47] LOG:  database system is ready to accept connections
+zkevm-state-db         |  done
+zkevm-state-db         | server started
+zkevm-state-db         | CREATE DATABASE
+zkevm-state-db         | 
+zkevm-state-db         | 
+zkevm-state-db         | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-state-db         | CREATE DATABASE
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-pool-db          | creating subdirectories ... ok
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.271Z	[34mINFO[0m	metrics/prometheus.go:610	Histogram Vec Metric 'state_executor_processing_time' successfully registered!	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.180Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[34mINFO[0m	l1infotree/tree.go:39	Resetting L1InfoTree...	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	l1infotree/tree.go:51	Reset initial count: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         | 
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	l1infotree/tree.go:52	Reset initial root: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+zkevm-event-db         | 
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-pool-db          | selecting dynamic shared memory implementation ... posix
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-pool-db          | selecting default max_connections ... 100
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.180Z	[34mINFO[0m	metrics/prometheus.go:604	Creating Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.180Z	[34mINFO[0m	metrics/prometheus.go:606	Histogram Vec Metric 'state_executor_processing_time' successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.180Z	[34mINFO[0m	metrics/prometheus.go:608	Registering Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.180Z	[34mINFO[0m	metrics/prometheus.go:610	Histogram Vec Metric 'state_executor_processing_time' successfully registered!	{"pid": 1, "version": "v0.6.6"}
+zkevm-prover           | 20250120_065644_073451 89dc145 3100c40 3: call=zkProver(_ZN8Database4initEv+0x13e) [0x602908ce952e]
+zkevm-prover           | 20250120_065644_073452 89dc145 3100c40 4: call=zkProver(_ZN6HashDBC1ER10GoldilocksRK6Config+0xb8) [0x60290dca6d58]
+zkevm-prover           | 20250120_065644_073453 89dc145 3100c40 5: call=zkProver(_ZN15HashDBSingleton4initER10GoldilocksRK6Config+0x10a) [0x60290dca9f5a]
+zkevm-prover           | 20250120_065644_073454 89dc145 3100c40 6: call=zkProver(main+0x4b0) [0x602908babb40]
+zkevm-prover           | 20250120_065644_073455 89dc145 3100c40 7: call=/lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x742483cfbd90]
+zkevm-prover           | 20250120_065644_073456 89dc145 3100c40 8: call=/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x742483cfbe40]
+zkevm-prover           | 20250120_065644_073456 89dc145 3100c40 9: call=zkProver(_start+0x25) [0x602908bf0a35]
+zkevm-prover           | 20250120_065644_073535 89dc145 3100c40 MEMORY INFO 
+zkevm-prover           |     MemTotal: 39852.957031 MB
+zkevm-prover           |     MemFree: 20479.070312 MB
+zkevm-prover           |     MemAvailable: 30080.269531 MB
+zkevm-prover           |     Buffers: 818.589844 MB
+zkevm-prover           |     Cached: 8856.875000 MB
+zkevm-prover           |     SwapCached: 0.000000 MB
+zkevm-prover           |     SwapTotal: 975.996094 MB
+zkevm-prover           |     SwapFree: 975.996094 MB
+zkevm-prover           |     VM: 782.136719 MB
+zkevm-prover           |     RSS: 0.006836 MB
+zkevm-prover           | 20250120_065644_073576 89dc145 3100c40 PROCESS INFO
+zkevm-prover           |     Pid: 1
+zkevm-prover           |     User time: 0.010000 s
+zkevm-prover           |     Kernel time: 0.000000 s
+zkevm-prover           |     Total time: 0.010000 s
+zkevm-prover           |     Num threads: 2
+zkevm-prover           |     Virtual mem: 782 MB
+zkevm-event-db         | waiting for server to start....2025-01-20 06:56:44.152 UTC [48] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-aggregator       | 2025-01-20T06:56:53.614Z	[34mINFO[0m	db/db.go:121	Found 20 migrations as expected	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         | 2025-01-20 06:56:44.165 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[34mINFO[0m	cmd/run.go:519	Starting L1InfoRoot: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         | 2025-01-20 06:56:44.202 UTC [51] LOG:  database system was shut down at 2025-01-20 06:56:42 UTC
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:479	Creating Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:481	Counter Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:483	Registering Counter Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	cmd/run.go:628	getting forkIDs from db	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:485	Counter Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_processed_events_counter"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	cmd/run.go:634	numberForkIDs: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	cmd/run.go:682	Getting initial forkID	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	etherman/etherman.go:344	Getting forkIDs from blockNumber: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | You are now connected to database "prover_db" as user "state_user".
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	etherman/etherman.go:347	Using ForkIDChunkSize: 20000	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.272Z	[35mDEBUG[0m	etherman/etherman.go:354	INTERVAL. Initial: 136. Final: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.273Z	[35mDEBUG[0m	etherman/etherman.go:451	ForkIDs found: []	{"pid": 1, "version": "v0.6.6"}
+zkevm-state-db         | CREATE SCHEMA
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-state-db         | CREATE TABLE
+zkevm-state-db         | CREATE TABLE
+zkevm-event-db         | 2025-01-20 06:56:44.229 UTC [48] LOG:  database system is ready to accept connections
+zkevm-state-db         | CREATE ROLE
+zkevm-state-db         | ALTER DATABASE
+zkevm-mock-l1-network  |   1. This mode is only intended for fast, iterative development without assumptions on
+zkevm-state-db         | ALTER SCHEMA
+zkevm-mock-l1-network  |      security or persistence.
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-mock-l1-network  |   2. The database is created in memory unless specified otherwise. Therefore, shutting down
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-mock-l1-network  |      your computer or losing power will wipe your entire block data and chain state for
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sync             | 2025-01-20T06:56:48.244Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-sync             | 2025-01-20T06:56:48.245Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-pool-db          | selecting default shared_buffers ... 128MB
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-event-db         |  done
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.051Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.052Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.053Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.053Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.053Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-json-rpc         | 2025-01-20T06:56:54.053Z	[34mINFO[0m	executor/client.go:30	trying to connect to executor: zkevm-prover:50071	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[34mINFO[0m	l1infotree/tree.go:39	Resetting L1InfoTree...	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	l1infotree/tree.go:51	Reset initial count: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	l1infotree/tree.go:52	Reset initial root: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[34mINFO[0m	cmd/run.go:519	Starting L1InfoRoot: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	cmd/run.go:628	getting forkIDs from db	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	cmd/run.go:634	numberForkIDs: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	cmd/run.go:682	Getting initial forkID	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	etherman/etherman.go:344	Getting forkIDs from blockNumber: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	etherman/etherman.go:347	Using ForkIDChunkSize: 20000	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.181Z	[35mDEBUG[0m	etherman/etherman.go:354	INTERVAL. Initial: 136. Final: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.182Z	[35mDEBUG[0m	etherman/etherman.go:451	ForkIDs found: []	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | 2025-01-20T06:56:52.182Z	[31mFATAL[0m	cmd/run.go:523	error getting forkIDs. Error: error: no forkID received. It should receive at least one, please check the configuration...
+zkevm-eth-tx-manager   | /src/log/log.go:142 github.com/0xPolygonHermez/zkevm-node/log.appendStackTraceMaybeArgs()
+zkevm-eth-tx-manager   | /src/log/log.go:223 github.com/0xPolygonHermez/zkevm-node/log.Fatal()
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_read_and_process_all_event_time"}
+zkevm-mock-l1-network  |      your dev environment.
+zkevm-mock-l1-network  |   3. A random, pre-allocated developer account will be available and unlocked as
+zkevm-mock-l1-network  |      eth.coinbase, which can be used for testing. The random dev account is temporary,
+zkevm-prover           | 20250120_065649_083367 89dc145 3100c40 --> DATABASE_PROGRAM_CACHE_DESTRUCTOR starting...
+zkevm-prover           | 20250120_065649_083417 89dc145 3100c40 <-- DATABASE_PROGRAM_CACHE_DESTRUCTOR done: 0.000051 s
+zkevm-prover           | 20250120_065649_083424 89dc145 3100c40 --> DATABASE_CACHE_DESTRUCTOR starting...
+zkevm-prover           | 20250120_065649_083431 89dc145 3100c40 <-- DATABASE_CACHE_DESTRUCTOR done: 0.000005 s
+zkevm-prover           | 20250120_065649_083435 89dc145 3100c40 --> DATABASE_MT_CACHE_DESTRUCTOR starting...
+zkevm-prover           | 20250120_065649_083441 89dc145 3100c40 <-- DATABASE_MT_CACHE_DESTRUCTOR done: 0.000005 s
+zkevm-prover           | 20250120_065649_083445 89dc145 3100c40 --> DATABASE_CACHE_DESTRUCTOR starting...
+zkevm-prover           | 20250120_065649_083449 89dc145 3100c40 <-- DATABASE_CACHE_DESTRUCTOR done: 0.000004 s
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_all_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_process_single_event_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-state-db         | ALTER SCHEMA
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-eth-tx-manager   | /src/cmd/run.go:523 main.newState()
+zkevm-state-db         | ALTER TABLE
+zkevm-sequence-sender  | main.start
+zkevm-sequence-sender  | 	/src/cmd/run.go:122
+zkevm-sequence-sender  | github.com/urfave/cli/v2.(*Command).Run
+zkevm-sequence-sender  | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277
+zkevm-sequence-sender  | github.com/urfave/cli/v2.(*Command).Run
+zkevm-sequence-sender  | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270
+zkevm-sequence-sender  | github.com/urfave/cli/v2.(*App).RunContext
+zkevm-sequence-sender  | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335
+zkevm-sequence-sender  | github.com/urfave/cli/v2.(*App).Run
+zkevm-sequence-sender  | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309
+zkevm-sequence-sender  | main.main
+zkevm-sequence-sender  | 	/src/cmd/main.go:191
+zkevm-sequence-sender  | runtime.main
+zkevm-sequence-sender  | 	/usr/local/go/src/runtime/proc.go:267
+zkevm-sync             | 2025-01-20T06:56:48.246Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.246Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.246Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-sync             | 2025-01-20T06:56:48.246Z	[34mINFO[0m	executor/client.go:30	trying to connect to executor: zkevm-prover:50071	{"pid": 1, "version": "v0.6.6"}
+zkevm-pool-db          | selecting default time zone ... Etc/UTC
+zkevm-pool-db          | creating configuration files ... ok
+zkevm-pool-db          | running bootstrap script ... ok
+zkevm-pool-db          | performing post-bootstrap initialization ... ok
+zkevm-pool-db          | syncing data to disk ... ok
+zkevm-pool-db          | 
+zkevm-pool-db          | 
+zkevm-pool-db          | Success. You can now start the database server using:
+zkevm-pool-db          | 
+zkevm-pool-db          |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+zkevm-pool-db          | 
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-state-db         | ALTER TABLE
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_events_time"}
+zkevm-state-db         | ALTER ROLE
+zkevm-pool-db          | initdb: warning: enabling "trust" authentication for local connections
+zkevm-state-db         | 
+zkevm-state-db         | 
+zkevm-mock-l1-network  |      stored on a ramdisk, and will be lost if your machine is restarted.
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-mock-l1-network  |   4. Mining is enabled by default. However, the client will only seal blocks if transactions
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.625Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-mock-l1-network  |      are pending in the mempool. The miner's minimum accepted gas price is 1.
+zkevm-pool-db          | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+zkevm-mock-l1-network  |   5. Networking is disabled; there is no listen-address, the maximum number of peers is set
+zkevm-mock-l1-network  |      to 0, and discovery is disabled.
+zkevm-mock-l1-network  | 
+zkevm-state-db         | waiting for server to shut down....2025-01-20 06:56:43.645 UTC [47] LOG:  received fast shutdown request
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.687] Maximum peer count                       ETH=50 total=50
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.688] Smartcard socket not found, disabling    err="stat /run/pcscd/pcscd.comm: no such file or directory"
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.690] Set global gas cap                       cap=50,000,000
+zkevm-state-db         | 2025-01-20 06:56:43.651 UTC [47] LOG:  aborting any active transactions
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.733] Using developer account                  address=0x062A6C6FD4B20FC54C107B6040B1D46c62df0a38
+zkevm-state-db         | 2025-01-20 06:56:43.652 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.733] Using pebble as the backing database
+zkevm-event-db         | server started
+zkevm-pool-db          | waiting for server to start....2025-01-20 06:56:43.576 UTC [48] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-event-db         | CREATE DATABASE
+zkevm-pool-db          | 2025-01-20 06:56:43.582 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-pool-db          | 2025-01-20 06:56:43.612 UTC [51] LOG:  database system was shut down at 2025-01-20 06:56:42 UTC
+zkevm-pool-db          | 2025-01-20 06:56:43.627 UTC [48] LOG:  database system is ready to accept connections
+zkevm-pool-db          |  done
+zkevm-pool-db          | server started
+zkevm-pool-db          | CREATE DATABASE
+zkevm-pool-db          | 
+zkevm-pool-db          | 
+zkevm-pool-db          | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+zkevm-pool-db          | 
+zkevm-pool-db          | waiting for server to shut down...2025-01-20 06:56:43.748 UTC [48] LOG:  received fast shutdown request
+zkevm-pool-db          | .2025-01-20 06:56:43.754 UTC [48] LOG:  aborting any active transactions
+zkevm-pool-db          | 2025-01-20 06:56:43.755 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+zkevm-pool-db          | 2025-01-20 06:56:43.755 UTC [49] LOG:  shutting down
+zkevm-pool-db          | 2025-01-20 06:56:43.766 UTC [49] LOG:  checkpoint starting: shutdown immediate
+zkevm-pool-db          | 2025-01-20 06:56:44.281 UTC [49] LOG:  checkpoint complete: wrote 918 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.037 s, sync=0.433 s, total=0.526 s; sync files=301, longest=0.008 s, average=0.002 s; distance=4222 kB, estimate=4222 kB
+zkevm-pool-db          | 2025-01-20 06:56:44.286 UTC [48] LOG:  database system is shut down
+zkevm-pool-db          |  done
+zkevm-pool-db          | server stopped
+zkevm-pool-db          | 
+zkevm-pool-db          | PostgreSQL init process complete; ready for start up.
+zkevm-pool-db          | 
+zkevm-pool-db          | 2025-01-20 06:56:44.375 UTC [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-pool-db          | 2025-01-20 06:56:44.375 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+zkevm-pool-db          | 2025-01-20 06:56:44.375 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+zkevm-pool-db          | 2025-01-20 06:56:44.389 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-pool-db          | 2025-01-20 06:56:44.409 UTC [64] LOG:  database system was shut down at 2025-01-20 06:56:44 UTC
+zkevm-pool-db          | 2025-01-20 06:56:44.415 UTC [1] LOG:  database system is ready to accept connections
+zkevm-l2gaspricer      | 2025-01-20T06:56:53.273Z	[31mFATAL[0m	cmd/run.go:523	error getting forkIDs. Error: error: no forkID received. It should receive at least one, please check the configuration...
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.733] Allocated cache and file handles         database=/geth_data/geth/chaindata cache=512.00MiB handles=524,288
+zkevm-event-db         | 
+zkevm-eth-tx-manager   | /src/cmd/run.go:122 main.start()
+zkevm-l2gaspricer      | /src/log/log.go:142 github.com/0xPolygonHermez/zkevm-node/log.appendStackTraceMaybeArgs()
+zkevm-event-db         | 
+zkevm-event-db         | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+zkevm-eth-tx-manager   | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-state-db         | 2025-01-20 06:56:43.653 UTC [48] LOG:  shutting down
+zkevm-eth-tx-manager   | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-state-db         | 2025-01-20 06:56:43.658 UTC [48] LOG:  checkpoint starting: shutdown immediate
+zkevm-state-db         | 2025-01-20 06:56:44.442 UTC [48] LOG:  checkpoint complete: wrote 1843 buffers (11.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.027 s, sync=0.742 s, total=0.790 s; sync files=614, longest=0.008 s, average=0.002 s; distance=8477 kB, estimate=8477 kB
+zkevm-state-db         | 2025-01-20 06:56:44.449 UTC [47] LOG:  database system is shut down
+zkevm-state-db         |  done
+zkevm-state-db         | server stopped
+zkevm-state-db         | 
+zkevm-state-db         | PostgreSQL init process complete; ready for start up.
+zkevm-state-db         | 
+zkevm-state-db         | 2025-01-20 06:56:44.572 UTC [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-state-db         | 2025-01-20 06:56:44.572 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+zkevm-state-db         | 2025-01-20 06:56:44.572 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+zkevm-state-db         | 2025-01-20 06:56:44.585 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-state-db         | 2025-01-20 06:56:44.600 UTC [66] LOG:  database system was shut down at 2025-01-20 06:56:44 UTC
+zkevm-state-db         | 2025-01-20 06:56:44.631 UTC [1] LOG:  database system is ready to accept connections
+zkevm-l2gaspricer      | /src/log/log.go:223 github.com/0xPolygonHermez/zkevm-node/log.Fatal()
+zkevm-l2gaspricer      | /src/cmd/run.go:523 main.newState()
+zkevm-l2gaspricer      | /src/cmd/run.go:122 main.start()
+zkevm-l2gaspricer      | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-l2gaspricer      | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-l2gaspricer      | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335 github.com/urfave/cli/v2.(*App).RunContext()
+zkevm-l2gaspricer      | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309 github.com/urfave/cli/v2.(*App).Run()
+zkevm-l2gaspricer      | /src/cmd/main.go:191 main.main()
+zkevm-l2gaspricer      | /usr/local/go/src/runtime/proc.go:267 runtime.main()
+zkevm-l2gaspricer      | 	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.734] Opened ancient database                  database=/geth_data/geth/chaindata/ancient/chain readonly=true
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.734] Initializing the KZG library             backend=gokzg
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | main.newState
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-l2gaspricer      | 	/src/cmd/run.go:523
+zkevm-l2gaspricer      | main.start
+zkevm-l2gaspricer      | 	/src/cmd/run.go:122
+zkevm-l2gaspricer      | github.com/urfave/cli/v2.(*Command).Run
+zkevm-l2gaspricer      | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277
+zkevm-l2gaspricer      | github.com/urfave/cli/v2.(*Command).Run
+zkevm-l2gaspricer      | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270
+zkevm-l2gaspricer      | github.com/urfave/cli/v2.(*App).RunContext
+zkevm-l2gaspricer      | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335
+zkevm-event-db         | CREATE TYPE
+zkevm-eth-tx-manager   | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335 github.com/urfave/cli/v2.(*App).RunContext()
+zkevm-event-db         | CREATE TABLE
+zkevm-eth-tx-manager   | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309 github.com/urfave/cli/v2.(*App).Run()
+zkevm-event-db         | 
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | /src/cmd/main.go:191 main.main()
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_get_forkIDs_time"}
+zkevm-eth-tx-manager   | /usr/local/go/src/runtime/proc.go:267 runtime.main()
+zkevm-event-db         | 
+zkevm-eth-tx-manager   | 	{"pid": 1, "version": "v0.6.6"}
+zkevm-eth-tx-manager   | main.newState
+zkevm-l2gaspricer      | github.com/urfave/cli/v2.(*App).Run
+zkevm-eth-tx-manager   | 	/src/cmd/run.go:523
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.747] Allocated trie memory caches             clean=154.00MiB dirty=256.00MiB
+zkevm-eth-tx-manager   | main.start
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.747] Using pebble as the backing database
+zkevm-eth-tx-manager   | 	/src/cmd/run.go:122
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.747] Allocated cache and file handles         database=/geth_data/geth/chaindata cache=512.00MiB handles=524,288
+zkevm-l2gaspricer      | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.927] Opened ancient database                  database=/geth_data/geth/chaindata/ancient/chain readonly=false
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.927] State scheme set to already existing     scheme=hash
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.927] Initialising Ethereum protocol           network=1337 dbversion=8
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.927] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] ---------------------------------------------------------------------------------------------------------------------------------------------------------
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Chain ID:  1337 (unknown)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Consensus: unknown
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Pre-Merge hard forks (block based):
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Berlin:                      #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/berlin.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - London:                      #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/london.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Arrow Glacier:               #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/arrow-glacier.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Gray Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/gray-glacier.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Merge configured:
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Hard-fork specification:    https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/paris.md
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Network known to be merged: true
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Total terminal difficulty:  0
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Post-Merge hard forks (timestamp based):
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928]  - Shanghai:                    @0          (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] ---------------------------------------------------------------------------------------------------------------------------------------------------------
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] 
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Loaded most recent local block           number=48 hash=0d1c0a..94da87 td=1 age=22m48s
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.928] Loaded most recent local finalized block number=32 hash=4a5825..70848c td=1 age=23m5s
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.929] Initialized transaction indexer          range="last 2350000 blocks"
+zkevm-event-db         | waiting for server to shut down...2025-01-20 06:56:44.473 UTC [48] LOG:  received fast shutdown request
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[34mINFO[0m	metrics/prometheus.go:604	Creating Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-event-db         | .2025-01-20 06:56:44.479 UTC [48] LOG:  aborting any active transactions
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[34mINFO[0m	metrics/prometheus.go:606	Histogram Vec Metric 'state_executor_processing_time' successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:563	Creating Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[34mINFO[0m	metrics/prometheus.go:608	Registering Histogram Vec Metric 'state_executor_processing_time' ...	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.627Z	[34mINFO[0m	metrics/prometheus.go:610	Histogram Vec Metric 'state_executor_processing_time' successfully registered!	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:565	Histogram Metric successfully created! Labels: 0x0	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.628Z	[34mINFO[0m	l1infotree/tree.go:39	Resetting L1InfoTree...	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:567	Registering Histogram Metric...	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.628Z	[35mDEBUG[0m	l1infotree/tree.go:51	Reset initial count: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.570Z	[35mDEBUG[0m	metrics/prometheus.go:569	Histogram Metric successfully registered!	{"pid": 1, "version": "v0.6.6", "metricName": "etherman_verify_genesisBlockNum_time"}
+zkevm-aggregator       | 2025-01-20T06:56:53.628Z	[35mDEBUG[0m	l1infotree/tree.go:52	Reset initial root: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.628Z	[34mINFO[0m	cmd/run.go:519	Starting L1InfoRoot: 0x27ae5ba08d7291c96c8cbddcc148bf48a6d68c7974b94356f53754ef6171d757	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.628Z	[35mDEBUG[0m	cmd/run.go:628	getting forkIDs from db	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	cmd/run.go:634	numberForkIDs: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	cmd/run.go:682	Getting initial forkID	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	etherman/etherman.go:344	Getting forkIDs from blockNumber: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	etherman/etherman.go:347	Using ForkIDChunkSize: 20000	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	etherman/etherman.go:354	INTERVAL. Initial: 136. Final: 136	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[35mDEBUG[0m	etherman/etherman.go:451	ForkIDs found: []	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | 2025-01-20T06:56:53.629Z	[31mFATAL[0m	cmd/run.go:523	error getting forkIDs. Error: error: no forkID received. It should receive at least one, please check the configuration...
+zkevm-aggregator       | /src/log/log.go:142 github.com/0xPolygonHermez/zkevm-node/log.appendStackTraceMaybeArgs()
+zkevm-aggregator       | /src/log/log.go:223 github.com/0xPolygonHermez/zkevm-node/log.Fatal()
+zkevm-aggregator       | /src/cmd/run.go:523 main.newState()
+zkevm-aggregator       | /src/cmd/run.go:122 main.start()
+zkevm-aggregator       | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-aggregator       | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270 github.com/urfave/cli/v2.(*Command).Run()
+zkevm-aggregator       | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335 github.com/urfave/cli/v2.(*App).RunContext()
+zkevm-aggregator       | /go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309 github.com/urfave/cli/v2.(*App).Run()
+zkevm-aggregator       | /src/cmd/main.go:191 main.main()
+zkevm-aggregator       | /usr/local/go/src/runtime/proc.go:267 runtime.main()
+zkevm-aggregator       | 	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | main.newState
+zkevm-aggregator       | 	/src/cmd/run.go:523
+zkevm-eth-tx-manager   | github.com/urfave/cli/v2.(*Command).Run
+zkevm-l2gaspricer      | main.main
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.935] Loaded local transaction journal         transactions=37 dropped=37
+zkevm-eth-tx-manager   | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277
+zkevm-aggregator       | main.start
+zkevm-mock-l1-network  | INFO [01-20|06:56:42.935] Regenerated local transaction journal    transactions=0  accounts=0
+zkevm-aggregator       | 	/src/cmd/run.go:122
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.148] Chain post-merge, sync via beacon client
+zkevm-event-db         | 2025-01-20 06:56:44.480 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.148] Unprotected transactions allowed
+zkevm-event-db         | 2025-01-20 06:56:44.480 UTC [49] LOG:  shutting down
+zkevm-event-db         | 2025-01-20 06:56:44.486 UTC [49] LOG:  checkpoint starting: shutdown immediate
+zkevm-event-db         | 2025-01-20 06:56:44.713 UTC [49] LOG:  checkpoint complete: wrote 929 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.020 s, sync=0.180 s, total=0.233 s; sync files=306, longest=0.007 s, average=0.001 s; distance=4249 kB, estimate=4249 kB
+zkevm-event-db         | 2025-01-20 06:56:44.718 UTC [48] LOG:  database system is shut down
+zkevm-event-db         |  done
+zkevm-event-db         | server stopped
+zkevm-event-db         | 
+zkevm-event-db         | PostgreSQL init process complete; ready for start up.
+zkevm-event-db         | 
+zkevm-event-db         | 2025-01-20 06:56:44.802 UTC [1] LOG:  starting PostgreSQL 15.10 (Debian 15.10-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+zkevm-event-db         | 2025-01-20 06:56:44.802 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+zkevm-event-db         | 2025-01-20 06:56:44.802 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+zkevm-event-db         | 2025-01-20 06:56:44.817 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+zkevm-event-db         | 2025-01-20 06:56:44.831 UTC [66] LOG:  database system was shut down at 2025-01-20 06:56:44 UTC
+zkevm-event-db         | 2025-01-20 06:56:44.844 UTC [1] LOG:  database system is ready to accept connections
+zkevm-l2gaspricer      | 	/src/cmd/main.go:191
+zkevm-l2gaspricer      | runtime.main
+zkevm-l2gaspricer      | 	/usr/local/go/src/runtime/proc.go:267
+zkevm-sequencer        | 2025-01-20T06:56:52.571Z	[35mDEBUG[0m	etherman/etherman.go:267	rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.148] Gasprice oracle is ignoring threshold set threshold=2
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.155] Starting peer-to-peer node               instance=Geth/v1.13.11-stable-8f7eb9cc/linux-amd64/go1.21.6
+zkevm-mock-l1-network  | WARN [01-20|06:56:43.155] P2P server will be useless, neither dialing nor listening
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.210] IPC endpoint opened                      url=/geth_data/geth.ipc
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.211] New local node record                    seq=1,737,354,785,469 id=260a345be140129d ip=127.0.0.1 udp=0 tcp=0
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.211] Started P2P networking                   self=enode://4c3c57b594498e6373931048322198b1b93f5379587911de9a0a3187c8f34bca04bc013772f47c164ceceb196e8760be61c5a981624aa21628bd27f5b132189a@127.0.0.1:0
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.211] HTTP server started                      endpoint=[::]:8545 auth=false prefix= cors=* vhosts=*
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.211] WebSocket enabled                        url=ws://[::]:8546
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.218] Starting work on payload                 id=0x023c5b40cffc91a5
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.218] Updated payload                          id=0x023c5b40cffc91a5 number=49 hash=e21ada..278cfe txs=0 withdrawals=0 gas=0 fees=0 root=f028ba..ec782b elapsed="31.662µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.219] Stopping work on payload                 id=0x023c5b40cffc91a5 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.226] Imported new potential chain segment     number=49 hash=e21ada..278cfe blocks=1 txs=0 mgas=0.000 elapsed=7.659ms    mgasps=0.000 snapdiffs=7.69KiB triedirty=0.00B
+zkevm-mock-l1-network  | INFO [01-20|06:56:43.233] Chain head was updated                   number=49 hash=e21ada..278cfe root=f028ba..ec782b elapsed=7.20657ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:44.250] Starting work on payload                 id=0x027f70effd8a5059
+zkevm-mock-l1-network  | INFO [01-20|06:56:44.250] Updated payload                          id=0x027f70effd8a5059 number=50 hash=fb11b2..ee33fd txs=0 withdrawals=0 gas=0 fees=0 root=f028ba..ec782b elapsed="16.028µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:44.251] Stopping work on payload                 id=0x027f70effd8a5059 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:44.261] Imported new potential chain segment     number=50 hash=fb11b2..ee33fd blocks=1 txs=0 mgas=0.000 elapsed=10.561ms   mgasps=0.000 snapdiffs=7.69KiB triedirty=0.00B
+zkevm-mock-l1-network  | INFO [01-20|06:56:44.268] Chain head was updated                   number=50 hash=fb11b2..ee33fd root=f028ba..ec782b elapsed=7.290412ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.000] Setting new local account                address=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.000] Submitted transaction                    hash=0x48a218b3d4fbdfbd2013152cff1ded480ff3075857a62cd6b7e907bf26ce5a67 from=0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 nonce=16 recipient=0x5FbDB2315678afecb367f032d93F642f64180aa3 value=0
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.290] Starting work on payload                 id=0x02bd4d181c442043
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.290] Updated payload                          id=0x02bd4d181c442043 number=51 hash=b5ea92..75b9b9 txs=1 withdrawals=0 gas=46543 fees=4.6543e-14 root=01e6de..138e6c elapsed="336.088µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.290] Stopping work on payload                 id=0x02bd4d181c442043 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.297] Imported new potential chain segment     number=51 hash=b5ea92..75b9b9 blocks=1 txs=1 mgas=0.047 elapsed=6.418ms     mgasps=7.251 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:45.303] Chain head was updated                   number=51 hash=b5ea92..75b9b9 root=01e6de..138e6c elapsed=6.320622ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:46.326] Starting work on payload                 id=0x02e6b56cbd9f7909
+zkevm-mock-l1-network  | INFO [01-20|06:56:46.327] Updated payload                          id=0x02e6b56cbd9f7909 number=52 hash=197302..0a92b9 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="84.589µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:46.327] Stopping work on payload                 id=0x02e6b56cbd9f7909 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:46.335] Imported new potential chain segment     number=52 hash=197302..0a92b9 blocks=1 txs=0 mgas=0.000 elapsed=7.725ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:46.342] Chain head was updated                   number=52 hash=197302..0a92b9 root=01e6de..138e6c elapsed=7.287429ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:47.365] Starting work on payload                 id=0x02d501dc8b1b18ae
+zkevm-mock-l1-network  | INFO [01-20|06:56:47.365] Updated payload                          id=0x02d501dc8b1b18ae number=53 hash=907fd4..142be2 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="18.737µs"
+zkevm-sequencer        | 2025-01-20T06:56:52.572Z	[35mDEBUG[0m	etherman/etherman.go:1759	chainID read from oldZkevm: 0	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.572Z	[35mDEBUG[0m	etherman/etherman.go:1761	error from oldZkevm: execution reverted	{"pid": 1, "version": "v0.6.6"}
+zkevm-mock-l1-network  | INFO [01-20|06:56:47.365] Stopping work on payload                 id=0x02d501dc8b1b18ae reason=delivery
+zkevm-sequencer        | 2025-01-20T06:56:52.572Z	[35mDEBUG[0m	etherman/etherman.go:1763	ChainID read from rollupManager: 1001 using rollupID: 1	{"pid": 1, "version": "v0.6.6"}
+zkevm-sequencer        | 2025-01-20T06:56:52.572Z	[34mINFO[0m	executor/client.go:30	trying to connect to executor: zkevm-prover:50071	{"pid": 1, "version": "v0.6.6"}
+zkevm-aggregator       | github.com/urfave/cli/v2.(*Command).Run
+zkevm-aggregator       | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:277
+zkevm-aggregator       | github.com/urfave/cli/v2.(*Command).Run
+zkevm-aggregator       | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270
+zkevm-aggregator       | github.com/urfave/cli/v2.(*App).RunContext
+zkevm-aggregator       | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335
+zkevm-aggregator       | github.com/urfave/cli/v2.(*App).Run
+zkevm-aggregator       | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309
+zkevm-aggregator       | main.main
+zkevm-eth-tx-manager   | github.com/urfave/cli/v2.(*Command).Run
+zkevm-eth-tx-manager   | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/command.go:270
+zkevm-eth-tx-manager   | github.com/urfave/cli/v2.(*App).RunContext
+zkevm-eth-tx-manager   | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:335
+zkevm-eth-tx-manager   | github.com/urfave/cli/v2.(*App).Run
+zkevm-eth-tx-manager   | 	/go/pkg/mod/github.com/urfave/cli/v2@v2.26.0/app.go:309
+zkevm-eth-tx-manager   | main.main
+zkevm-eth-tx-manager   | 	/src/cmd/main.go:191
+zkevm-eth-tx-manager   | runtime.main
+zkevm-eth-tx-manager   | 	/usr/local/go/src/runtime/proc.go:267
+zkevm-mock-l1-network  | INFO [01-20|06:56:47.372] Imported new potential chain segment     number=53 hash=907fd4..142be2 blocks=1 txs=0 mgas=0.000 elapsed=6.512ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:47.378] Chain head was updated                   number=53 hash=907fd4..142be2 root=01e6de..138e6c elapsed=6.387364ms
+zkevm-mock-l1-network  | WARN [01-20|06:56:48.246] Served eth_call                          conn=172.19.0.7:48818 reqid=2 duration="146.419µs" err="execution reverted"
+zkevm-mock-l1-network  | INFO [01-20|06:56:48.401] Starting work on payload                 id=0x026972a0289588c8
+zkevm-mock-l1-network  | INFO [01-20|06:56:48.401] Updated payload                          id=0x026972a0289588c8 number=54 hash=569f0e..fc07f1 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="168.037µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:48.402] Stopping work on payload                 id=0x026972a0289588c8 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:48.409] Imported new potential chain segment     number=54 hash=569f0e..fc07f1 blocks=1 txs=0 mgas=0.000 elapsed=7.149ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:48.416] Chain head was updated                   number=54 hash=569f0e..fc07f1 root=01e6de..138e6c elapsed=6.655716ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:49.438] Starting work on payload                 id=0x024aaabad792cf8f
+zkevm-mock-l1-network  | INFO [01-20|06:56:49.438] Updated payload                          id=0x024aaabad792cf8f number=55 hash=fc04da..6b28ec txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="49.89µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:49.438] Stopping work on payload                 id=0x024aaabad792cf8f reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:49.445] Imported new potential chain segment     number=55 hash=fc04da..6b28ec blocks=1 txs=0 mgas=0.000 elapsed=6.461ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:49.451] Chain head was updated                   number=55 hash=fc04da..6b28ec root=01e6de..138e6c elapsed=6.452443ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:50.474] Starting work on payload                 id=0x02597ebea711036a
+zkevm-mock-l1-network  | INFO [01-20|06:56:50.474] Updated payload                          id=0x02597ebea711036a number=56 hash=caff53..a38885 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="74.952µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:50.474] Stopping work on payload                 id=0x02597ebea711036a reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:50.481] Imported new potential chain segment     number=56 hash=caff53..a38885 blocks=1 txs=0 mgas=0.000 elapsed=6.903ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:50.488] Chain head was updated                   number=56 hash=caff53..a38885 root=01e6de..138e6c elapsed=6.628932ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:51.512] Starting work on payload                 id=0x02071f078b2f5729
+zkevm-mock-l1-network  | INFO [01-20|06:56:51.512] Updated payload                          id=0x02071f078b2f5729 number=57 hash=08bd5c..5cdbc0 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="83.598µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:51.512] Stopping work on payload                 id=0x02071f078b2f5729 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:51.519] Imported new potential chain segment     number=57 hash=08bd5c..5cdbc0 blocks=1 txs=0 mgas=0.000 elapsed=7.245ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:51.527] Chain head was updated                   number=57 hash=08bd5c..5cdbc0 root=01e6de..138e6c elapsed=7.422173ms
+zkevm-mock-l1-network  | WARN [01-20|06:56:52.179] Served eth_call                          conn=172.19.0.6:54692 reqid=2 duration="182.19µs" err="execution reverted"
+zkevm-mock-l1-network  | INFO [01-20|06:56:52.541] Starting work on payload                 id=0x028665f3c2ee7302
+zkevm-mock-l1-network  | INFO [01-20|06:56:52.541] Updated payload                          id=0x028665f3c2ee7302 number=58 hash=9d59c7..4f732b txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="17.01µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:52.542] Stopping work on payload                 id=0x028665f3c2ee7302 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:52.553] Imported new potential chain segment     number=58 hash=9d59c7..4f732b blocks=1 txs=0 mgas=0.000 elapsed=11.879ms    mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:52.566] Chain head was updated                   number=58 hash=9d59c7..4f732b root=01e6de..138e6c elapsed=12.321541ms
+zkevm-mock-l1-network  | WARN [01-20|06:56:52.571] Served eth_call                          conn=172.19.0.8:43076 reqid=2 duration="147.292µs" err="execution reverted"
+zkevm-mock-l1-network  | WARN [01-20|06:56:52.928] Served eth_call                          conn=172.19.0.6:54698 reqid=2 duration="154.727µs" err="execution reverted"
+zkevm-mock-l1-network  | WARN [01-20|06:56:53.270] Served eth_call                          conn=172.19.0.6:54710 reqid=2 duration="170.107µs" err="execution reverted"
+zkevm-mock-l1-network  | INFO [01-20|06:56:53.585] Starting work on payload                 id=0x02700c4a32d0df47
+zkevm-mock-l1-network  | INFO [01-20|06:56:53.585] Updated payload                          id=0x02700c4a32d0df47 number=59 hash=a39124..0a0354 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="16.549µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:53.585] Stopping work on payload                 id=0x02700c4a32d0df47 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:53.592] Imported new potential chain segment     number=59 hash=a39124..0a0354 blocks=1 txs=0 mgas=0.000 elapsed=6.747ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:53.598] Chain head was updated                   number=59 hash=a39124..0a0354 root=01e6de..138e6c elapsed=6.154325ms
+zkevm-mock-l1-network  | WARN [01-20|06:56:53.627] Served eth_call                          conn=172.19.0.6:48452 reqid=2 duration="172.761µs" err="execution reverted"
+zkevm-mock-l1-network  | WARN [01-20|06:56:54.053] Served eth_call                          conn=172.19.0.9:35368 reqid=2 duration="153.228µs" err="execution reverted"
+zkevm-mock-l1-network  | INFO [01-20|06:56:54.627] Starting work on payload                 id=0x021b4b1275a2a68f
+zkevm-mock-l1-network  | INFO [01-20|06:56:54.627] Updated payload                          id=0x021b4b1275a2a68f number=60 hash=90d96c..848f47 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="70.577µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:54.627] Stopping work on payload                 id=0x021b4b1275a2a68f reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:54.634] Imported new potential chain segment     number=60 hash=90d96c..848f47 blocks=1 txs=0 mgas=0.000 elapsed=7.249ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:54.641] Chain head was updated                   number=60 hash=90d96c..848f47 root=01e6de..138e6c elapsed=6.577275ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:55.664] Starting work on payload                 id=0x0293bbbf190bae07
+zkevm-mock-l1-network  | INFO [01-20|06:56:55.664] Updated payload                          id=0x0293bbbf190bae07 number=61 hash=b751bc..3f70ba txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="22.018µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:55.665] Stopping work on payload                 id=0x0293bbbf190bae07 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:55.671] Imported new potential chain segment     number=61 hash=b751bc..3f70ba blocks=1 txs=0 mgas=0.000 elapsed=6.223ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:55.677] Chain head was updated                   number=61 hash=b751bc..3f70ba root=01e6de..138e6c elapsed=6.14417ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:56.699] Starting work on payload                 id=0x022abe7477340c8f
+zkevm-mock-l1-network  | INFO [01-20|06:56:56.699] Updated payload                          id=0x022abe7477340c8f number=62 hash=603625..0121df txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="26.137µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:56.699] Stopping work on payload                 id=0x022abe7477340c8f reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:56.706] Imported new potential chain segment     number=62 hash=603625..0121df blocks=1 txs=0 mgas=0.000 elapsed=6.436ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-aggregator       | 	/src/cmd/main.go:191
+zkevm-aggregator       | runtime.main
+zkevm-aggregator       | 	/usr/local/go/src/runtime/proc.go:267
+zkevm-mock-l1-network  | INFO [01-20|06:56:56.712] Chain head was updated                   number=62 hash=603625..0121df root=01e6de..138e6c elapsed=6.51967ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:57.735] Starting work on payload                 id=0x0291ba6de873da93
+zkevm-mock-l1-network  | INFO [01-20|06:56:57.736] Updated payload                          id=0x0291ba6de873da93 number=63 hash=33616b..b193bd txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="64.56µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:57.736] Stopping work on payload                 id=0x0291ba6de873da93 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:57.743] Imported new potential chain segment     number=63 hash=33616b..b193bd blocks=1 txs=0 mgas=0.000 elapsed=7.300ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:57.750] Chain head was updated                   number=63 hash=33616b..b193bd root=01e6de..138e6c elapsed=6.650957ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:58.773] Starting work on payload                 id=0x02f84b97432b1a5f
+zkevm-mock-l1-network  | INFO [01-20|06:56:58.773] Updated payload                          id=0x02f84b97432b1a5f number=64 hash=3f48f3..7132fe txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="91.356µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:58.773] Stopping work on payload                 id=0x02f84b97432b1a5f reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:58.780] Imported new potential chain segment     number=64 hash=3f48f3..7132fe blocks=1 txs=0 mgas=0.000 elapsed=7.122ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:58.787] Chain head was updated                   number=64 hash=3f48f3..7132fe root=01e6de..138e6c elapsed=6.996132ms
+zkevm-mock-l1-network  | INFO [01-20|06:56:59.810] Starting work on payload                 id=0x0253b79f74c0ac92
+zkevm-mock-l1-network  | INFO [01-20|06:56:59.810] Updated payload                          id=0x0253b79f74c0ac92 number=65 hash=0fd037..9c462e txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="23.362µs"
+zkevm-mock-l1-network  | INFO [01-20|06:56:59.810] Stopping work on payload                 id=0x0253b79f74c0ac92 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:56:59.816] Imported new potential chain segment     number=65 hash=0fd037..9c462e blocks=1 txs=0 mgas=0.000 elapsed=6.399ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:56:59.823] Chain head was updated                   number=65 hash=0fd037..9c462e root=01e6de..138e6c elapsed=6.441105ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:00.845] Starting work on payload                 id=0x02f568aa94191674
+zkevm-mock-l1-network  | INFO [01-20|06:57:00.846] Updated payload                          id=0x02f568aa94191674 number=66 hash=ba33d5..3d3647 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="66.668µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:00.846] Stopping work on payload                 id=0x02f568aa94191674 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:00.853] Imported new potential chain segment     number=66 hash=ba33d5..3d3647 blocks=1 txs=0 mgas=0.000 elapsed=7.079ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:00.859] Chain head was updated                   number=66 hash=ba33d5..3d3647 root=01e6de..138e6c elapsed=6.388043ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:01.882] Starting work on payload                 id=0x024dc441ddaf0cd0
+zkevm-mock-l1-network  | INFO [01-20|06:57:01.883] Updated payload                          id=0x024dc441ddaf0cd0 number=67 hash=a2ece5..99e4e4 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="227.458µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:01.883] Stopping work on payload                 id=0x024dc441ddaf0cd0 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:01.890] Imported new potential chain segment     number=67 hash=a2ece5..99e4e4 blocks=1 txs=0 mgas=0.000 elapsed=6.966ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:01.897] Chain head was updated                   number=67 hash=a2ece5..99e4e4 root=01e6de..138e6c elapsed=6.547272ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:02.919] Starting work on payload                 id=0x02dedd3569b87367
+zkevm-mock-l1-network  | INFO [01-20|06:57:02.919] Updated payload                          id=0x02dedd3569b87367 number=68 hash=29e029..51fc02 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="80.793µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:02.919] Stopping work on payload                 id=0x02dedd3569b87367 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:02.926] Imported new potential chain segment     number=68 hash=29e029..51fc02 blocks=1 txs=0 mgas=0.000 elapsed=6.952ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:02.933] Chain head was updated                   number=68 hash=29e029..51fc02 root=01e6de..138e6c elapsed=6.333775ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:03.955] Starting work on payload                 id=0x02d23ed19203c3a8
+zkevm-mock-l1-network  | INFO [01-20|06:57:03.955] Updated payload                          id=0x02d23ed19203c3a8 number=69 hash=0b4c31..40eb84 txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="17.123µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:03.956] Stopping work on payload                 id=0x02d23ed19203c3a8 reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:03.962] Imported new potential chain segment     number=69 hash=0b4c31..40eb84 blocks=1 txs=0 mgas=0.000 elapsed=6.570ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:03.968] Chain head was updated                   number=69 hash=0b4c31..40eb84 root=01e6de..138e6c elapsed=6.314012ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:04.982] Starting work on payload                 id=0x02d0aacdbcda1dbf
+zkevm-mock-l1-network  | INFO [01-20|06:57:04.982] Updated payload                          id=0x02d0aacdbcda1dbf number=70 hash=7927c5..133e6e txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="29.654µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:04.982] Stopping work on payload                 id=0x02d0aacdbcda1dbf reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:04.989] Imported new potential chain segment     number=70 hash=7927c5..133e6e blocks=1 txs=0 mgas=0.000 elapsed=6.338ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:04.996] Chain head was updated                   number=70 hash=7927c5..133e6e root=01e6de..138e6c elapsed=6.977691ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:06.020] Starting work on payload                 id=0x02c269ace723434f
+zkevm-mock-l1-network  | INFO [01-20|06:57:06.021] Updated payload                          id=0x02c269ace723434f number=71 hash=d3652b..acc71a txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="70.683µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:06.021] Stopping work on payload                 id=0x02c269ace723434f reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:06.028] Imported new potential chain segment     number=71 hash=d3652b..acc71a blocks=1 txs=0 mgas=0.000 elapsed=7.030ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:06.034] Chain head was updated                   number=71 hash=d3652b..acc71a root=01e6de..138e6c elapsed=6.531379ms
+zkevm-mock-l1-network  | INFO [01-20|06:57:07.059] Starting work on payload                 id=0x028c407aaf8f86db
+zkevm-mock-l1-network  | INFO [01-20|06:57:07.059] Updated payload                          id=0x028c407aaf8f86db number=72 hash=de6414..b2c86d txs=0 withdrawals=0 gas=0     fees=0          root=01e6de..138e6c elapsed="112.498µs"
+zkevm-mock-l1-network  | INFO [01-20|06:57:07.059] Stopping work on payload                 id=0x028c407aaf8f86db reason=delivery
+zkevm-mock-l1-network  | INFO [01-20|06:57:07.066] Imported new potential chain segment     number=72 hash=de6414..b2c86d blocks=1 txs=0 mgas=0.000 elapsed=6.783ms     mgasps=0.000 snapdiffs=7.95KiB triedirty=3.27KiB
+zkevm-mock-l1-network  | INFO [01-20|06:57:07.073] Chain head was updated                   number=72 hash=de6414..b2c86d root=01e6de..138e6c elapsed=6.598819ms
