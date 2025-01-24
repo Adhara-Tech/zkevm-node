@@ -680,12 +680,13 @@ func forkIDIntervals(ctx context.Context, st *state.State, etherman *etherman.Cl
 			forkIDIntervals = forkIntervals
 		} else {
 			log.Debug(fmt.Printf("Getting initial forkID from block %d", genesisBlockNumber))
-			forkIntervals, err := etherman.GetForks(ctx, 0, genesisBlockNumber)
+			forkIntervals, err := etherman.GetForks(ctx, genesisBlockNumber, genesisBlockNumber)
 			if err != nil {
 				return []state.ForkIDInterval{}, fmt.Errorf("error getting forks. Please check the configuration. Error: %v", err)
 			} else if len(forkIntervals) == 0 {
-				return []state.ForkIDInterval{}, fmt.Errorf("error: no forkID received. It should receive at least one, please check the configuration...")
+				return []state.ForkIDInterval{}, fmt.Errorf("error: no forkID received from block [%d]. It should receive at least one, please check the configuration...", genesisBlockNumber)
 			}
+			log.Debug(fmt.Printf("Received %d intervals up to block", len(forkIntervals)))
 			forkIDIntervals = forkIntervals
 		}
 	}

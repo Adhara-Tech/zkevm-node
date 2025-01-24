@@ -294,7 +294,7 @@ func (etherMan *Client) VerifyGenBlockNumber(ctx context.Context, genBlockNumber
 	// Filter query
 	genBlock := new(big.Int).SetUint64(genBlockNumber)
 	query := ethereum.FilterQuery{
-		FromBlock: genBlock,
+		FromBlock: genBlock, // big.NewInt(0),
 		ToBlock:   genBlock,
 		Addresses: etherMan.SCAddresses,
 		Topics:    [][]common.Hash{{updateZkEVMVersionSignatureHash, createNewRollupSignatureHash}},
@@ -304,7 +304,7 @@ func (etherMan *Client) VerifyGenBlockNumber(ctx context.Context, genBlockNumber
 		return false, err
 	}
 	if len(logs) == 0 {
-		return false, fmt.Errorf("the specified genBlockNumber in config file does not contain any forkID event. Please use the proper blockNumber.")
+		return false, fmt.Errorf("the specified genBlockNumber [%d] in config file does not contain any forkID event. Please use the proper blockNumber.", genBlockNumber)
 	}
 	var zkevmVersion oldpolygonzkevm.OldpolygonzkevmUpdateZkEVMVersion
 	switch logs[0].Topics[0] {
