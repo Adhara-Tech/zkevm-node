@@ -117,4 +117,9 @@ It's recommended to use `make` for building, and testing the code, ... Run `make
 
 Before opening a pull request, please read this [guide](CONTRIBUTING.md).
 
+## 
 
+docker inspect --type=image adhara.io/hermeznetwork/geth-zkevm-contracts
+docker inspect --type=image hermeznetwork/geth-zkevm-contracts:elderberry-fork.9-geth1.13.11
+docker inspect --type=image docker.io/library/zkevm-node
+docker-compose logs --no-color > logs.txt

@@ -40,7 +40,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/urfave/cli/v2"
+	cli "github.com/urfave/cli/v2"
 )
 
 func start(cliCtx *cli.Context) error {
@@ -679,8 +679,8 @@ func forkIDIntervals(ctx context.Context, st *state.State, etherman *etherman.Cl
 			}
 			forkIDIntervals = forkIntervals
 		} else {
-			log.Debug("Getting initial forkID")
-			forkIntervals, err := etherman.GetForks(ctx, genesisBlockNumber, genesisBlockNumber)
+			log.Debug(fmt.Printf("Getting initial forkID from block %d", genesisBlockNumber))
+			forkIntervals, err := etherman.GetForks(ctx, 0, genesisBlockNumber)
 			if err != nil {
 				return []state.ForkIDInterval{}, fmt.Errorf("error getting forks. Please check the configuration. Error: %v", err)
 			} else if len(forkIntervals) == 0 {
